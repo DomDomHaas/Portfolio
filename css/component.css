@@ -68,7 +68,7 @@
 	position: absolute;
 	width: 100%;
 	top: 50%;
-	height: 1px;
+	height: 3px;
 	background: #888;
 	-webkit-transform: rotate(45deg);
 	-moz-transform: rotate(45deg);
@@ -265,7 +265,7 @@
 
 
 
-/**** morph button trailer ****/
+/**** Morph Button trailer ****/
 
 
 /* Morph Button: Default Styles */
@@ -309,7 +309,6 @@
 .morph-button-fixed .morph-content {
 	width: 250px;
     height: 55px;
-    line-height: 45px;
 	margin: 75px 15px 0px;
     border: 3px solid #333;
 }

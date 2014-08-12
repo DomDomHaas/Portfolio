@@ -767,6 +767,68 @@ a {
 	color: rgba(0,0,0,0.2);
 }
 
+
+body {
+    background-color: #423f3f;
+    color: #00DFFC;
+}
+
+body p{
+    color: #00b4cc;    
+}
+
+.header p {
+    color: #00DFFC;
+}
+
+.og-expander {
+    background-color: #343838;
+    color: #00DFFC;
+}
+
+.og-details a {
+    background-color: #008c9e;
+    color: #333;
+}
+
+.og-details a:hover{
+    border-color: #00DFFC;
+    color: #00DFFC;
+}
+
+.morph-button-modal-4 > button, .morph-button-modal-4 .morph-content{
+    background-color: #008c9e;
+    color: #333;
+}
+
+.morph-button-fixed, .morph-button-fixed .morph-content{
+    color: #00B4CC;
+    border-color: #008c9e;
+}
+
+.morph-button-fixed:hover, .morph-button-fixed:hover > button{
+    border-color: #00DFFC;
+    color: #00DFFC;
+}
+
+.og-close:before, .og-close:after{
+    background-color: #00B4CC;
+/*    background-color: #00DFFC; */
+}
+
+.og-close:hover:before, .og-close:hover:after{
+    /* background-color: #00B4CC; */
+    background-color: #00DFFC;
+}
+
+.blueprints{
+    display: none;
+}
+
+.content-style-video .icon-close, .content-style-video .icon-pause{
+    color: #00DFFC;
+}
+
 @media screen and (max-width: 770px) {
 	.content-style-overlay {
 		font-size: 75%;

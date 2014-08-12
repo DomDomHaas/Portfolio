@@ -162,11 +162,11 @@ $.fn.imagesLoaded = function( callback ) {
 };
 
 var Grid = (function() {
-
-		var $imgStack = $('.blueprints .stack'), 
-		$trailButton = $('.blueprints .morph-button'), 
+/*
+		var $trailButton = $('.blueprints .morph-button'), 
 		$websiteButton = $('.blueprints .website-link'), 
-            
+  */          
+		var $imgStack = $('.blueprints .stack'), 
             
 		// list of items
 		$grid = $( '#og-grid' ),
