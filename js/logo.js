@@ -18,7 +18,16 @@ for(var i = 0, l = items.length; i < l; i++) {
         items[i].style.top = "55%";
     }
     
+    if (i == 0 || i == 1 || i == 7){
+        $(items[i]).on('click', { target: $(items[i]).attr('local') }, function(event) {
+            $('body').scrollTo(event.data.target, 1000);
+            //, {easing:}
+        });
+    }
+    
 }
+
+
 
 document.querySelector('.logoimg').onclick = function(e) {
    e.preventDefault(); document.querySelector('.circle').classList.toggle('open');

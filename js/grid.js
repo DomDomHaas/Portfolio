@@ -1,3 +1,7 @@
+document.querySelectorAll('.gonext').on('click', { target: $(this).attr('local') }, function(event) {
+                                            $('body').scrollTo(event.data.target, 1000);
+                                        });
+
 /*
 * debouncedresize: special jQuery event that happens once after a window resize
 *

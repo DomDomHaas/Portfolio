@@ -78,34 +78,31 @@ a {
 	padding: 50px 20px;
 }
 
-.main > .og-grid li > a img.vd{
+.main > .og-grid li a img.vd{
     /* circle */
-    border-radius:500px;
+    border-radius: 50%;
 }
 
 
-.main > .og-grid li > a img.gd{
+.main > .og-grid li a img.gd{
     /* smooth rectangle */
     border-radius: 50px;
 }
 
 .main > .og-grid li.header {
-    margin: 450px 0px 0px 0px;
+    margin: 100px 0px 0px 0px;
     padding: 10px 0;
     width: 100%;
     height: auto;
     /* box-shadow: 0 10px 10px -15px; */
 }
 
-.main.vd > .og-grid li > a img{
-    /* circle */
-    border-radius:500px;
-}
-
-
-.main.gd > .og-grid li > a img{
-    /* smooth rectangle */
-    border-radius: 50px;
+.main > .og-grid li.gonext {
+    display: block;
+    height: 30px;
+    margin: 300px 0 0;
+    padding: 0;
+    cursor: pointer;
 }
 
 
@@ -266,87 +263,3 @@ body p{
     background-color: #00DFFC;
 }
 
-
-.container_terra section.intro{
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"); /* fallback */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"), -webkit-gradient(linear, left top, left bottom, from(#111), to(#033649)); /* Saf4+, Chrome */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"), -webkit-linear-gradient(top, #111, #033649); /* Chrome 10+, Saf5.1+ */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),    -moz-linear-gradient(top, #111, #033649); /* FF3.6+ */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),     -ms-linear-gradient(top, #111, #033649); /* IE10 */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),      -o-linear-gradient(top, #111, #033649); /* Opera 11.10+ */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),         linear-gradient(to bottom, #111, #033649); /* W3C */        
-}
-
-.footer_terra {
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"); /* fallback */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"), -webkit-gradient(linear, left bottom, left top, from(#222), to(#033649)); /* Saf4+, Chrome */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"), -webkit-linear-gradient(bottom, #222, #033649); /* Chrome 10+, Saf5.1+ */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),    -moz-linear-gradient(bottom, #222, #033649); /* FF3.6+ */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),     -ms-linear-gradient(bottom, #222, #033649); /* IE10 */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),      -o-linear-gradient(bottom, #222, #033649); /* Opera 11.10+ */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),         linear-gradient(to top, #222, #033649); /* W3C */          
-}
-
-
-/* overwrites for Terra theme: http://pltts.me/palettes/292482 
-
-
-body {
-    background-color: #033649;
-    color: #CDB380;
-}
-
-body p{
-    color: #CDB380;    
-}
-
-.header p {
-    color: #CDB380;
-}
-
-.og-expander {
-    background-color: #031634;
-    color: #CDB380;
-}
-
-.og-details a {
-    background-color: #036564;
-    color: #031634;
-    border-color: #036564;
-}
-
-.og-details a:hover{
-    border-color: #CDB380;
-    color: #CDB380;
-}
-
-.morph-button-modal-4 > button, .morph-button-modal-4 .morph-content{
-    background-color: #036564;
-    color: #031634;
-}
-
-.morph-button-fixed, .morph-button-fixed .morph-content{
-    color: #00B4CC;
-    border-color: #036564;
-}
-
-.morph-button-fixed:hover, .morph-button-fixed:hover > button{
-    border-color: #CDB380;
-    color: #CDB380;
-}
-
-
-.og-grid li.og-expanded > a::after {
-    border-bottom-color: #CDB380;
-}
-
-.og-close:before, .og-close:after{
-    background-color: #036564;
-}
-
-.og-close:hover:before, .og-close:hover:after{
-    background-color: #CDB380;
-}
-
-
-*/
