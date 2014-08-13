@@ -29,9 +29,12 @@ html { height: 100%; }
 }
 
 body {
+    /*font-family: 'Lato', Calibri, Arial, sans-serif; */
     font-family: Candara;
+    background: #f9f9f9;
     font-weight: 300;
     font-size: 15px;
+    color: #333;
     overflow: scroll;
     overflow-x: hidden;
 }
@@ -54,7 +57,7 @@ a {
 	padding: 0 30px 50px 30px;
 	padding: 60px 30px 50px;
 	text-align: center;
-    font-size: 40px;
+    font-size: 70px;
 }
 
 .container section.main{
@@ -135,7 +138,7 @@ a {
 }
 
 .header.gd p {
-    font-size: 43px;
+    font-size: 53px;
 }
 
 .header.gp, .og-details.gp h3{
@@ -144,41 +147,245 @@ a {
 }
 
 .header.gp p {
-    font-size: 50px;
+    font-size: 60px;
 }
 
 .header p{
     line-height: 1.1;
-    font-size: 40px;
+    font-size: 50px;
 }
 
-.container {
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png");
+/*
+.diamond .top{
+    background-image: url("../images/thumbs/hexaplex_board_n_cards_color_250.png");
+    background-position: 10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 125px 166px 125px;
+    border-color: transparent transparent #007bff transparent;    
 }
 
-.container section.intro{
-    text-align: center;
+.diamond .bot{
+    background-image: url("../images/thumbs/hexaplex_board_n_cards_color_250.png");
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 83px 125px 0 125px;
+    border-color: #007bff transparent transparent transparent;
 }
 
-.container section.intro .about > p {
-    margin: 25px auto;
-    max-width: 550px;
+#octagon {
+ width: 100px;
+ height: 100px;
+ background: red;
+ position: relative;
 }
 
-.container section.logo {
-    padding: 80px 0 50px;
-    text-align: center;
-    background-color: #111;
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png");
+#octagon:before {
+ content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ border-bottom: 29px solid red;
+ border-left: 29px solid #eee;
+ border-right: 29px solid #eee;
+ width: 42px;
+ height: 0;
 }
 
-.container section.logo > img{
-    width: 100px;
-    height: 100px;
+#octagon:after {
+ content: "";
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ border-top: 29px solid red;
+ border-left: 29px solid #eee;
+ border-right: 29px solid #eee;
+ width: 42px;
+ height: 0;
+}
+*/
+
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
 }
 
 
-.container section.intro {
+
+
+/* Icomoon font Icons */
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon/icomoon.eot?i64fx9');
+	src:url('../fonts/icomoon/icomoon.eot?#iefixi64fx9') format('embedded-opentype'),
+		url('../fonts/icomoon/icomoon.woff?i64fx9') format('woff'),
+		url('../fonts/icomoon/icomoon.ttf?i64fx9') format('truetype'),
+		url('../fonts/icomoon/icomoon.svg?i64fx9#icomoon') format('svg');
+}
+
+.icon-close {
+	z-index: 100;
+	display: block;
+	overflow: hidden;
+	width: 3em;
+	height: 3em;
+	text-align: center;
+	line-height: 3;
+	cursor: pointer;
+}
+
+.icon:before {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-transform: none;
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-family: 'icomoon';
+	speak: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-camera:before {
+	content: "\e017";
+}
+
+.icon-server:before {
+	content: "\e022";
+}
+
+.icon-heart:before {
+	content: "\e024";
+}
+
+.icon-zoom-in:before {
+	content: "\e037";
+}
+
+.icon-microphone:before {
+	content: "\e048";
+}
+
+.icon-cloud:before {
+	content: "\e066";
+}
+
+.icon-user:before {
+	content: "\e074";
+}
+
+.icon-briefcase:before {
+	content: "\e075";
+}
+
+.icon-globe:before {
+	content: "\e078";
+}
+
+.icon-cog::before {
+	content: "\e600";
+}
+
+.icon-close::before {
+	content: "\e601";
+}
+
+.icon-play::before {
+	content: "\e602";
+}
+
+.icon-pause::before {
+	content: "\e603";
+}
+
+.icon-close {
+	position: absolute;
+	top: 5px;
+	right: 0px;
+}
+
+.icon-close:hover {
+	color: #a50a05;
+}
+
+
+.morph-button.open .content-style-form-2 h2,
+.morph-button.open .content-style-form-2 p,
+.morph-button.open .content-style-form-2 .icon-close {
+	opacity: 1;
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
+}
+
+.morph-button.open .content-style-form-4 p {
+	opacity: 1;
+	-webkit-transition: opacity 0.4s 0.2s, -webkit-transform 0.4s 0.2s;
+	transition: opacity 0.4s 0.2s, transform 0.4s 0.2s;
+	-webkit-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+}
+
+.morph-button.open .content-style-form-4 p:nth-child(2) {
+	-webkit-transition-delay: 0.35s;
+	transition-delay: 0.35s;
+}
+
+.content-style-social {
+	padding: 30px;
+	text-align: left;
+}
+
+.morph-button-inflow-2 > button svg {
+	display: inline-block;
+	padding-right: 10px;
+	width: 20px;
+	height: 20px;
+	vertical-align: -5%;
+}
+
+.morph-button-inflow-2 > button svg path {
+	fill: #e75854;
+}
+
+.morph-button-inflow.open .content-style-social a {
+	-webkit-transform: translateX(0);
+	transform: translateX(0);	
+}
+
+.morph-button-inflow.open .content-style-social a:nth-child(2) {
+	-webkit-transition-delay: 0.05s;
+	transition-delay: 0.05s;
+}
+
+.morph-button-inflow.open .content-style-social a:nth-child(3) {
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+
+.blueprints{
+    display: none;
+}
+
+
+.container_iced section.intro{
     background-image: url("../images/texture/dots-300x300-fine_transparent.png"); /* fallback */
     background-image: url("../images/texture/dots-300x300-fine_transparent.png"), -webkit-gradient(linear, left top, left bottom, from(#111), to(#423F3F)); /* Saf4+, Chrome */
     background-image: url("../images/texture/dots-300x300-fine_transparent.png"), -webkit-linear-gradient(top, #111, #423F3F); /* Chrome 10+, Saf5.1+ */
@@ -188,8 +395,11 @@ a {
     background-image: url("../images/texture/dots-300x300-fine_transparent.png"),         linear-gradient(to bottom, #111, #423F3F); /* W3C */        
 }
 
+.container_iced section.main{
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png");
+}
 
-.footer {
+.footer_iced {
     background-image: url("../images/texture/dots-300x300-fine_transparent.png"); /* fallback */
     background-image: url("../images/texture/dots-300x300-fine_transparent.png"), -webkit-gradient(linear, left bottom, left top, from(#222), to(#423F3F)); /* Saf4+, Chrome */
     background-image: url("../images/texture/dots-300x300-fine_transparent.png"), -webkit-linear-gradient(bottom, #222, #423F3F); /* Chrome 10+, Saf5.1+ */
@@ -199,7 +409,7 @@ a {
     background-image: url("../images/texture/dots-300x300-fine_transparent.png"),         linear-gradient(to top, #222, #423F3F); /* W3C */          
 }
 
-/* overwrite for theme iced concret: http://www.colourlovers.com/palette/3450740/iced_concret */
+/* overwrite for theme iced concret: http://www.colourlovers.com/palette/3450740/iced_concret 
 
 body {
     background-color: #423f3f;
@@ -226,7 +436,7 @@ body p{
 
 .og-details a {
     background-color: #008c9e;
-    color: #383634;
+    color: #333;
     border-color: #008c9e;
 }
 
@@ -241,7 +451,7 @@ body p{
 
 .morph-button-modal-4 > button, .morph-button-modal-4 .morph-content{
     background-color: #008c9e;
-    color: #383634;
+    color: #333;
 }
 
 .morph-button-fixed, .morph-button-fixed .morph-content{
@@ -267,28 +477,7 @@ body p{
 }
 
 
-.container_terra section.intro{
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"); /* fallback */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"), -webkit-gradient(linear, left top, left bottom, from(#111), to(#033649)); /* Saf4+, Chrome */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"), -webkit-linear-gradient(top, #111, #033649); /* Chrome 10+, Saf5.1+ */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),    -moz-linear-gradient(top, #111, #033649); /* FF3.6+ */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),     -ms-linear-gradient(top, #111, #033649); /* IE10 */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),      -o-linear-gradient(top, #111, #033649); /* Opera 11.10+ */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),         linear-gradient(to bottom, #111, #033649); /* W3C */        
-}
-
-.footer_terra {
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"); /* fallback */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"), -webkit-gradient(linear, left bottom, left top, from(#222), to(#033649)); /* Saf4+, Chrome */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"), -webkit-linear-gradient(bottom, #222, #033649); /* Chrome 10+, Saf5.1+ */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),    -moz-linear-gradient(bottom, #222, #033649); /* FF3.6+ */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),     -ms-linear-gradient(bottom, #222, #033649); /* IE10 */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),      -o-linear-gradient(bottom, #222, #033649); /* Opera 11.10+ */
-    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),         linear-gradient(to top, #222, #033649); /* W3C */          
-}
-
-
-/* overwrites for Terra theme: http://pltts.me/palettes/292482 
+/* overwrites for Terra theme: http://pltts.me/palettes/292482 */ 
 
 
 body {
@@ -302,6 +491,30 @@ body p{
 
 .header p {
     color: #CDB380;
+}
+
+.container section.intro{
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"); /* fallback */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"), -webkit-gradient(linear, left top, left bottom, from(#111), to(#033649)); /* Saf4+, Chrome */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"), -webkit-linear-gradient(top, #111, #033649); /* Chrome 10+, Saf5.1+ */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),    -moz-linear-gradient(top, #111, #033649); /* FF3.6+ */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),     -ms-linear-gradient(top, #111, #033649); /* IE10 */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),      -o-linear-gradient(top, #111, #033649); /* Opera 11.10+ */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),         linear-gradient(to bottom, #111, #033649); /* W3C */        
+}
+
+.container section.main{
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png");
+}
+
+.footer {
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"); /* fallback */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"), -webkit-gradient(linear, left bottom, left top, from(#222), to(#033649)); /* Saf4+, Chrome */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"), -webkit-linear-gradient(bottom, #222, #033649); /* Chrome 10+, Saf5.1+ */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),    -moz-linear-gradient(bottom, #222, #033649); /* FF3.6+ */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),     -ms-linear-gradient(bottom, #222, #033649); /* IE10 */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),      -o-linear-gradient(bottom, #222, #033649); /* Opera 11.10+ */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),         linear-gradient(to top, #222, #033649); /* W3C */          
 }
 
 .og-expander {
@@ -347,6 +560,3 @@ body p{
 .og-close:hover:before, .og-close:hover:after{
     background-color: #CDB380;
 }
-
-
-*/
