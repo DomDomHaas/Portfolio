@@ -1,5 +1,20 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+/*@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700); */
+
 @import url(http://fonts.googleapis.com/css?family=Exo|Lekton|Iceland|Passero+One|Corben|Expletus+Sans|Baumans);
+
+@font-face {
+   font-family: 'calamity';
+   src: url( ../fonts/CalamityJaneNF.ttf);
+   src: local ('Ø'), url( ../fonts/CalamityJaneNF.ttf) format('ttf')
+}
+
+@font-face {
+   font-family: 'cafeandbrewery';
+   src: url( ../fonts/cafeandbrewery.ttf);
+   src: local ('Ø'), url( ../fonts/cafeandbrewery.ttf) format('ttf')
+}
+
+
 
 html { height: 100%; }
 
@@ -14,7 +29,8 @@ html { height: 100%; }
 }
 
 body {
-    font-family: 'Lato', Calibri, Arial, sans-serif;
+    /*font-family: 'Lato', Calibri, Arial, sans-serif; */
+    font-family: Candara;
     background: #f9f9f9;
     font-weight: 300;
     font-size: 15px;
@@ -33,31 +49,44 @@ a {
 	position: relative;
 }
 
-.container > header {
+.container > header, .container section .about{
 	width: 90%;
 	max-width: 1240px;
 	margin: 0 auto;
 	position: relative;
 	padding: 0 30px 50px 30px;
-}
-
-.container > header {
 	padding: 60px 30px 50px;
 	text-align: center;
+    font-size: 70px;
 }
 
-.container > header h1 {
-	font-size: 34px;
-	line-height: 38px;
-	margin: 0 auto;
-	font-weight: 700;
-	color: #333;
+
+.container section.intro{
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"); /* fallback */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"), -webkit-gradient(linear, left top, left bottom, from(#000), to(#423F3F)); /* Saf4+, Chrome */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"), -webkit-linear-gradient(top, #000, #423F3F); /* Chrome 10+, Saf5.1+ */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),    -moz-linear-gradient(top, #000, #423F3F); /* FF3.6+ */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),     -ms-linear-gradient(top, #000, #423F3F); /* IE10 */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),      -o-linear-gradient(top, #000, #423F3F); /* Opera 11.10+ */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),         linear-gradient(to bottom, #000, #423F3F); /* W3C */        
 }
 
-.container > header h1 span {
-	display: block;
-	font-size: 20px;
-	font-weight: 300;
+.container section.main{
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png");
+    padding: 0 0 450px;
+}
+
+
+
+.container > header .initials {
+  border: 5px dotted;
+  border-radius: 200px;
+  float: left;
+  font-family: 'cafeandbrewery';
+  font-size: 45px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  padding: 20px 10px;
 }
 
 .main > p {
@@ -77,14 +106,12 @@ a {
 }
 
 .main > .og-grid li.header {
-    margin: 150px 0px 0px 0px;
+    margin: 450px 0px 0px 0px;
     padding: 10px 0;
     width: 100%;
     height: auto;
-    box-shadow: 0 10px 10px -15px;
+    /* box-shadow: 0 10px 10px -15px; */
 }
-
-/* multi grid css */ 
 
 .main.vd > .og-grid li > a img{
     /* circle */
@@ -97,26 +124,26 @@ a {
     border-radius: 50px;
 }
 
-/*
-.main.gp > .og-grid li > a img:before{
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 125px 166px 125px;
-    border-color: transparent transparent #007bff transparent;    
-}
-*/
 
 .footer {
     text-align: center;
-    margin: 200px auto 25px;
+    /*
+    margin: 200px auto 0;
     box-shadow: 0 -10px 10px -15px;
-    max-width: 1280px;    
+    max-width: 1280px;
+    */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"); /* fallback */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"), -webkit-gradient(linear, left bottom, left top, from(#222), to(#423F3F)); /* Saf4+, Chrome */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"), -webkit-linear-gradient(bottom, #222, #423F3F); /* Chrome 10+, Saf5.1+ */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),    -moz-linear-gradient(bottom, #222, #423F3F); /* FF3.6+ */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),     -ms-linear-gradient(bottom, #222, #423F3F); /* IE10 */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),      -o-linear-gradient(bottom, #222, #423F3F); /* Opera 11.10+ */
+    background-image: url("../images/texture/dots-300x300-fine_transparent.png"),         linear-gradient(to top, #222, #423F3F); /* W3C */          
 }
 
 .footer a{
     display: inline-block;
-    margin: 25px 25px 0 0;
+    margin: 25px;
     height: 56px;
     width: 56px;
     padding: 0;
@@ -149,7 +176,7 @@ a {
     font-size: 30px;
 }
 
-
+/*
 .diamond .top{
     background-image: url("../images/thumbs/hexaplex_board_n_cards_color_250.png");
     background-position: 10px;
@@ -169,8 +196,6 @@ a {
     border-color: #007bff transparent transparent transparent;
 }
 
-
-/*
 #octagon {
  width: 100px;
  height: 100px;
@@ -789,6 +814,7 @@ body p{
 .og-details a {
     background-color: #008c9e;
     color: #333;
+    border-color: #008c9e;
 }
 
 .og-details a:hover{
