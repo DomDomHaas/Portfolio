@@ -1,8 +1,53 @@
 
-@import "http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css";
+@import "http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css";
 
-body {
-  background: #39D;
+.floating{
+    -webkit-animation-name: Floatingx;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    -moz-animation-name: Floating;
+    -moz-animation-duration: 3s;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+
+}
+
+@-webkit-keyframes Floatingx{
+    from {-webkit-transform:translate(0, 0px);}
+    65% {-webkit-transform:translate(0, 15px);}
+    to {-webkit-transform: translate(0, -0px);    }    
+}
+    
+@-moz-keyframes Floating{
+    from {-moz-transform:translate(0, 0px);}
+    65% {-moz-transform:translate(0, 15px);}
+    to {-moz-transform: translate(0, -0px);}    
+}
+
+.scaling{
+    -webkit-animation-name: scalex;
+    -webkit-animation-duration:3s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function:ease-in-out;
+    -moz-animation-name: scale;
+    -moz-animation-duration:3s;
+    -moz-animation-iteration-count:infinite;
+    -moz-animation-timing-function:ease-in-out;
+}
+    
+@-webkit-keyframes scalex{
+    from {-webkit-transform: scale(0.9);}
+    65% {-webkit-transform: scale(1.0);}
+    to {-webkit-transform: scale(0.9);}    
+}
+
+@-moz-keyframes scale{
+    from {-moz-transform: scale(0.9);}
+    65% {-moz-transform: scale(1.0);}
+    to {-moz-transform: scale(0.9);}    
 }
 
 .circular-menu {
@@ -45,17 +90,13 @@ body {
   margin-top: -20px;
   position: absolute;
   text-align: center;
-
 }
 
 .circle a:hover {
   color: #eef;
 }
 
-.menu-button {
-  background: none repeat scroll 0 0 #dde;
-  border-radius: 50%;
-  color: #444;
+.menu-button, .logoimg {
   display: block;
   height: 100px;
   left: calc(50% - 50px);
@@ -66,26 +107,15 @@ body {
   width: 100px;
 }
 
+.menu-button {    
+  background: none repeat scroll 0 0 #dde;
+  border-radius: 50%;
+  color: #444;
+}
+
 .menu-button:hover {
   background-color: #eef;
 }
-
-/* Author stuff */
-h1.author {
-  text-align:center;
-  color: white;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: 300;
-}
-
-h1.author a {
-  color: #348;
-  text-decoration:none;
-}
-
-h1.author a:hover {
-  color: #ddd;
-} 
 
 
 
