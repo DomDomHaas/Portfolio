@@ -112,14 +112,15 @@
 }
 
 .menu-button, .logoimg {
-  display: block;
-  height: 100px;
-  left: calc(50% - 50px);
-  position: absolute;
-  text-align: center;
-  text-decoration: none;
-  top: calc(50% - 50px);
-  width: 100px;
+    display: block;
+    height: 100px;
+    left: calc(50% - 50px);
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    top: calc(50% - 50px);
+    width: 100px;
+    cursor: pointer;
 }
 
 .menu-button {    
@@ -424,3 +425,67 @@
 .blueprints{
     display: none;
 }
+
+
+/*** icons hover ***/
+
+.tt-wrapper{
+}
+.tt-wrapper li{
+	float: left;
+}
+
+.tt-wrapper a span{
+	width: 100px;
+	height: auto;
+	line-height: 20px;
+	padding: 5px;
+	margin-left: -22px;
+	/* font-family: 'Alegreya SC', Georgia, serif; */
+	font-weight: 700;	
+	font-style: italic;
+	color: #00DFFC;
+    
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	border: 3px solid #fff;
+	background: rgba(56, 54, 52, 0);
+	text-indent: 0px;
+	border-radius: 5px;
+	position: absolute;
+	pointer-events: none;
+	bottom: 95px;
+	opacity: 0;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.tt-wrapper a span:before,
+.tt-wrapper a span:after{
+	content: '';
+	position: absolute;
+	bottom: -15px;
+	left: 50%;
+	margin-left: -9px;
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid rgba(0,0,0,0.1);
+}
+.tt-wrapper a span:after{
+	bottom: -12px;
+	margin-left: -10px;
+	border-top: 10px solid #fff;
+}
+.tt-wrapper a:hover span{
+	opacity: 0.9;
+	/* bottom: 70px; */
+}
+
+
+
