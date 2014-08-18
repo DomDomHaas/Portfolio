@@ -21,7 +21,6 @@ for(var i = 0, l = items.length; i < l; i++) {
     if (i == 0 || i == 1 || i == 7){
         $(items[i]).on('click', { target: $(items[i]).attr('local') }, function(event) {
             $('body').scrollTo(event.data.target, 1000);
-            //, {easing:}
         });
     }
     
@@ -32,13 +31,3 @@ for(var i = 0, l = items.length; i < l; i++) {
 document.querySelector('.logoimg').onclick = function(e) {
    e.preventDefault(); document.querySelector('.circle').classList.toggle('open');
 }
-
-/*
-$('.logo > img').hover(
-    function(){ $(this).addClass('active') },
-    function(){ $(this).removeClass('active') }
-)
-
-$('.logo > img').click(function(){$(this).toggleClass('active')});
-
-*/

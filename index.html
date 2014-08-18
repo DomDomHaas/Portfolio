@@ -9,10 +9,10 @@
 		<meta name="keywords" content="gamedesign, game, games, portfolio, 2D, 3D, animation, dominik, haas, hexaplex, schlicht, merge" />
 		<meta name="author" content="Dominik Haas" />
         
-		<!-- link rel="shortcut icon" href="../images/favicon.ico" --> 
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
-		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<link rel="stylesheet" type="text/css" href="css/interactive.css" />
+		<link rel="shortcut icon" href="images/icons/fav_icon_logo.png"> 
+		<link rel="stylesheet" type="text/css" media="screen" href="css/component.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/interactive.css" />
         
         <script src="js/jquery-2.1.1.min.js"></script>
         <script src="js/jquery.scrollTo.min.js"></script>
@@ -72,10 +72,16 @@
             
             
             <section class="intro">
-                <div class="about">
-                    <p>Hi, my name is Dominik Haas, I love playing games and I'm passionate about making them.</p>
+                <div class="title">
+                    <h1>I love interactive applications, especially games!</h1>
+                </div>
+                <div local="#about" class="gonext fa fa-2x fa-arrow-circle-down floating"></div>
+                <div id="about" class="about">
+                    <p>Hello dear Guest!</p>
                     <p>After several years working in software development I started studying Game Design.</p>
-                    <p>I'm fond of mechanics that connect players in a fun &amp; special way.</p>
+                    <p>Since I love playing games I'm even more passionate about making them.</p>
+                    <p>Thank you for visiting my portfolio, here you can get to know some of my work.</p>
+                    <!--p>I'm fond of mechanics that connect players in a fun &amp; special way.</p-->
                 </div>
             </section>
             
@@ -87,30 +93,29 @@
                         <p>Visual Design</p>
                     </li>
 					<li>
-                        <div class="ch-item">
-                            <div class="ch-info"><h3>Schlicht</h3><p>a atmospheric puzzler</p></div>
-                            
-                            <a data-largesrc="images/hexaplex_action_cards_300.png" data-title="Azuki bean" data-trailer="https://www.youtube.com/embed/sQpYPeC1kg0" data-link="http://www.schlichtgame.ch"
-                               data-name="Schlicht"
-                               data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
-                                <img class="vd" src="images/thumbs/hexaplex_action_cards_250.png" alt="img01"/>
-                            </a>
+                        <div class="ch-item vd" data-name="Character Design: Extraction"
+                             src="images/extraction/extraction_final_narrow4.jpg"
+                               data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot."
+                                style="background-image: url('images/extraction/extraction_final_narrow4.jpg')" >
+                            <div class="ch-info"><h3>Extraction</h3><p>Character Design</p></div>
                         </div>
                             
 					</li>
 					<li>
-						<a data-largesrc="images/hexaplex_board_n_cards_300.png" data-title="Azuki bean" data-trailer="https://www.youtube.com/embed/4H1uiBKUC0o"
-                           data-name="Schlicht Gameplay"
-                           data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
-							<img class="vd" src="images/thumbs/hexaplex_board_n_cards_250.png" alt="img01"/>
-						</a>
+                        <div class="ch-item vd" data-name="Character Design: Lara"
+                             src="images/hexaplex_board_n_cards_300.png"
+                               data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot."
+                                style="background-image: url('images/lara/lara_lines.jpg')" >
+                            <div class="ch-info"><h3>Lara</h3><p>Character Design</p></div>
+                        </div>
 					</li>
 					<li>
-						<a data-largesrc="images/Onepager_small.jpg" data-title="Azuki bean" data-trailer="http://player.vimeo.com/video/99513752"
-                           data-name="Merge"
-                           data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
-							<img class="vd" src="images/thumbs/hexaplex_board_n_cards_color_250.png" alt="img01"/>
-						</a>
+                        <div class="ch-item vd" data-name="Rewrap"
+                             src="images/rewrap/1_room.png" data-trailer="http://youtu.be/w2_-BLjH-ZQ"
+                               data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot."
+                                style="background-image: url('images/rewrap/1_room.png')" >
+                            <div class="ch-info"><h3>Rewrap</h3><p>3D Animation</p></div>
+                        </div>
 					</li>
                     <li local="#gamedesign" class="gonext fa fa-2x fa-arrow-circle-down floating"></li>
                     
@@ -119,25 +124,32 @@
                     </li>
                     
 					<li>
-						<a data-largesrc="images/hexaplex_closeup_board_n_cards_color_300.png" data-title="Azuki bean" data-link="http://www.schlichtgame.ch"
-                           data-name="Schlicht"
-                           data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
-							<img class="gd" src="images/thumbs/hexaplex_closeup_board_n_cards_color_250.png" alt="img01"/>
-						</a>
+                        <div class="ch-item gd" data-name="Schlicht"
+                             src="images/schlicht/Schlicht_laptop_small.png" data-trailer="https://www.youtube.com/embed/sQpYPeC1kg0" data-link="http://www.schlichtgame.ch" 
+                               data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot."
+                                style="background-image: url('images/schlicht/Schlicht_laptop_small.png')" >
+                            <div class="ch-info"><h3>Schlicht</h3><p>atmospheric Puzzle Game</p></div>
+                        </div>
 					</li>
 					<li>
-						<a data-largesrc="images/hexaplex_action_cards_300.png" data-title="Azuki bean"
-                           data-name="Schlicht"
-                           data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
-							<img class="gd" src="images/thumbs/hexaplex_action_cards_250.png" alt="img01"/>
-						</a>
+                        <div class="ch-item gd" src="images/hexaplex/hexaplex_title_300.png" data-title="Azuki bean" data-trailer="https://www.youtube.com/embed/4H1uiBKUC0o"
+                           data-name="Hexaplex boardgame"
+                               data-description="Hexaplex is a strategical boardgame about capturing hexagons to earn points. The players
+                                                have to place their stones in order to use the corresponding pattern card. Always keep an eye
+                                                on the opponents, because once a player lays down the last card of their hand all players
+                                                have to discard their cards. Their plans are crossed and they have to find a new strategy in
+                                                the next turn."
+                                style="background-image: url('images/hexaplex/hexaplex_title_300.png')" >
+                            <div class="ch-info"><h3>Hexaplex</h3><p>a strategy boardgame</p></div>
+                        </div>
 					</li>
 					<li>
-						<a data-largesrc="images/hexaplex_action_cards_300.png" data-title="Azuki bean"
-                           data-name="Schlicht"
-                           data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
-							<img class="gd" src="images/thumbs/hexaplex_action_cards_250.png" alt="img01"/>
-						</a>
+                        <div class="ch-item gd" data-name="Merge"
+                             src="images/merge/Merge_title_300.png" data-trailer="http://player.vimeo.com/video/99513752"                           
+                               data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot."
+                                style="background-image: url('images/merge/Merge_title_300.png')" >
+                            <div class="ch-info"><h3>Merge</h3><p>a action-adventure game</p></div>
+                        </div>
 					</li>
                     <li local="#gameprogramming" class="gonext fa fa-2x fa-arrow-circle-down floating"></li>
                     
@@ -146,21 +158,21 @@
                     </li>
                     
 					<li>
-						<a data-largesrc="images/hexaplex_closeup_board_n_cards_color_300.png" data-title="Azuki bean"
+						<a src="images/hexaplex_closeup_board_n_cards_color_300.png" data-title="Azuki bean"
                            data-name="Schlicht"
                            data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
 							<img class="gp" src="images/thumbs/hexaplex_closeup_board_n_cards_color_250.png" alt="img01"/>
 						</a>
 					</li>
 					<li>
-						<a data-largesrc="images/hexaplex_action_cards_300.png" data-title="Azuki bean"
+						<a src="images/hexaplex_action_cards_300.png" data-title="Azuki bean"
                            data-name="Schlicht"
                            data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
 							<img class="gp" src="images/thumbs/hexaplex_action_cards_250.png" alt="img01"/>
 						</a>
 					</li>
 					<li>
-						<a data-largesrc="images/hexaplex_action_cards_300.png" data-title="Azuki bean"
+						<a src="images/hexaplex_action_cards_300.png" data-title="Azuki bean"
                            data-name="Schlicht"
                            data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
 							<img class="gp" src="images/thumbs/hexaplex_action_cards_250.png" alt="img01"/>
@@ -184,6 +196,7 @@
         <!-- links:
             BBT-Analyse: http://bit.ly/17LRfQK
             Inklewriter: http://bit.ly/Zt8Ff4
+            Isosphere: http://bit.ly/1pULLci
             /container -->
         
 		<script src="js/grid.js"></script>

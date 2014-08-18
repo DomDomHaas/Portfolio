@@ -1,7 +1,3 @@
-document.querySelectorAll('.gonext').on('click', { target: $(this).attr('local') }, function(event) {
-                                            $('body').scrollTo(event.data.target, 1000);
-                                        });
-
 /*
 * debouncedresize: special jQuery event that happens once after a window resize
 *
@@ -147,7 +143,7 @@ $.fn.imagesLoaded = function( callback ) {
 
 			// if complete is true and browser supports natural sizes, try
 			// to check for image status manually
-			if ( el.complete && el.naturalWidth !== undefined ) {
+			if ( el.complete && el.naturalWidth !== 'undefined' ) {
 				imgLoaded( el, el.naturalWidth === 0 || el.naturalHeight === 0 );
 				return;
 			}
@@ -166,7 +162,24 @@ $.fn.imagesLoaded = function( callback ) {
 };
 
 var Grid = (function() {
+ 
+
+    var gonexts = document.querySelectorAll('.gonext');
+    
+    for(var i = 0; i < gonexts.length; i++){    
+        $(gonexts[i]).on('click', { target: $(gonexts[i]).attr('local') }, function(event) {
+                                    $('body').scrollTo(event.data.target, 1000);
+                                    //alert('in gonext click');
+                                    });
+    }
+
 /*
+ 
+document.querySelector('.gonext').onclick = function(e) {
+   e.preventDefault(); document.querySelector('.circle').classList.toggle('open');
+}    
+
+    
 		var $trailButton = $('.blueprints .morph-button'), 
 		$websiteButton = $('.blueprints .website-link'), 
   */          
@@ -283,7 +296,7 @@ var Grid = (function() {
 		$items.on( 'click', 'span.og-close', function() {
 			hidePreview();
 			return false;
-		} ).children( 'a' ).on( 'click', function(e) {
+		} ).children( '.ch-item' ).on( 'click', function(e) {
 
 			var $item = $( this ).parent();
 			// check if item already opened
@@ -371,7 +384,7 @@ var Grid = (function() {
 			this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$description, this.$trailer, this.$href );
             
             // left side img
-			this.$loading = $( '<div class="og-loading"></div>' );            
+			this.$loading = $( '<div class="fa fa-circle-o-notch fa-spin"></div>' );            
 			this.$fullimage = $( '<div class="og-fullimg"></div>' ).append( this.$loading );
             
 			this.$closePreview = $( '<span class="og-close"></span>' );
@@ -405,12 +418,12 @@ var Grid = (function() {
 			current = this.$item.index();
 
 			// update preview´s content
-			var $itemEl = this.$item.children( 'a' ),
+			var $itemEl = this.$item.children( '.ch-item' ),
 				eldata = {
 					href : $itemEl.data( 'link' ),
 					trailer : $itemEl.data( 'trailer' ),
-					largesrc : $itemEl.data( 'largesrc' ),
-					title : $itemEl.data( 'title' ),
+					largesrc : $itemEl.attr( 'src' ),
+					title : $itemEl.data( 'name' ),
 					projectname : $itemEl.data( 'name' ),
 					description : $itemEl.data( 'description' )
 				};
@@ -432,22 +445,46 @@ var Grid = (function() {
                 
 				this.$loading.show();
                 
-                var fontClass = $itemEl.parent().find('a > img').attr('class');
-                self.$details.addClass(fontClass);
+                //var fontClass = $itemEl.parent().find('a > img').attr('class');
+                //self.$details.addClass(fontClass);
+                if ($itemEl.hasClass('vd')){
+                    self.$details.addClass('vd');
+                }
+                if ($itemEl.hasClass('gd')){
+                    self.$details.addClass('gd');
+                }
+                if ($itemEl.hasClass('gp')){
+                    self.$details.addClass('gp');
+                }
+            
+                var projectName = $itemEl.parent().parent().parent().parent().find('> a').attr("data-name");
+                    
+                if (typeof eldata.trailer !== 'undefined'){                    
+                    self.$trailer.find('.trailer').attr('src', eldata.trailer);
+                    self.$trailer.find('button').text(eldata.projectname + ' trailer');
+                    self.$trailer.show();
+                } else {
+                    self.$trailer.hide();
+                }
+
+
+                if (typeof eldata.href !== 'undefined'){
+                    self.$href.attr('href', eldata.href);
+                    self.$href.text("Visit " + eldata.projectname);
+                    self.$href.show();
+                } else {
+                    self.$href.hide();
+                }                
                 
 				$( '<img/>' ).load( function() {
 					var $img = $( this );
-					if( $img.attr( 'src' ) === self.$item.children('a').data( 'largesrc' ) ) {
+					if( $img.attr( 'src' ) === self.$item.children('.ch-item').attr( 'src' ) ) {
 						self.$loading.hide();
 						self.$fullimage.find( 'img' ).remove();
 						self.$largeImg = $img.fadeIn( 350 );
 						self.$fullimage.append( self.$largeImg );
 					}
 
-
-                    
-                    var projectName = $itemEl.parent().parent().parent().parent().find('> a').attr("data-name");
-                    
 
                     /*** fill in stack images ***/
                     var currentStack = $imgStack.clone(false, false);
@@ -474,37 +511,18 @@ var Grid = (function() {
                     });
                     
                     var scritpAlreadyAdded = $(fullimg).parent().find('script');
-                    if (scritpAlreadyAdded !== undefined){
+                    if (typeof scritpAlreadyAdded !== 'undefined'){
                         $(scritpAlreadyAdded).remove();
                     }
                     $(fullimg).append( currentStack ).after('<script src="js/simplestack.js"></script>');
                     
-                    
 
-                    if (eldata.trailer !== undefined){
-                        self.$trailer.find('.trailer').attr('src', eldata.trailer);
-                        self.$trailer.find('button').text(eldata.projectname + ' trailer');
-                        self.$trailer.show();
-                    } else {
-                        self.$trailer.hide();
-                    }
-                    
-
-                    if (eldata.href !== undefined){
-                        self.$href.attr('href', eldata.href);
-                        self.$href.text("Visit " + eldata.projectname);
-                        self.$href.show();
-                    } else {
-                        self.$href.hide();
-                    }
-                    
-                    
-                    
-				} ).attr( 'src', eldata.largesrc );	
+				} ).attr( 'src', eldata.largesrc );
+                
+                
+                
 			}
 
-
-           
             
 		},
 		open : function() {
@@ -612,7 +630,7 @@ var Grid = (function() {
 
 function getHTMLButton(videolink, websitelink){
     
-    if (videolink !== undefined){
+    if (videolink !== 'undefined'){
         
     }
 }

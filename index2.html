@@ -11,9 +11,12 @@
         
 		<!-- link rel="shortcut icon" href="../images/favicon.ico" --> 
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
-		<link rel="stylesheet" type="text/css" href="css/style2.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/interactive.css" />
+		<link rel="stylesheet" type="text/css" href="css/slider.css" />
         
         <script src="js/jquery-2.1.1.min.js"></script>
+        <script src="js/jquery.scrollTo.min.js"></script>
 		<script src="js/modernizr.custom.js"></script>
         
         <script>
@@ -35,6 +38,83 @@
     
     
 	<body>
+        
+
+<article id="slider">
+		
+		<!-- Slider Setup -->
+	
+		<input type="radio" id="slide1" name="slider" checked="" selected="false">
+		<input type="radio" id="slide2" name="slider" selected="false">
+		<input type="radio" id="slide3" name="slider" selected="false">
+		<input type="radio" id="slide4" name="slider" selected="false">
+		<input type="radio" id="slide5" name="slider" selected="false">
+	
+	
+		<!-- The Slider -->
+		
+		<div id="slides">
+		
+			<div id="overflow">
+			
+				<div class="inner">
+				
+					<article>
+						<div class="info"><h3>Cloud Dragon</h3> by <a href="">Brendan Zabarauskas</a></div>
+						<img src="images/1.jpg">
+					</article>
+					
+					<article>
+						<div class="info"><h3>Mountain Fort</h3> by <a href="">Brendan Zabarauskas</a></div>
+						<img src="images/2.jpg">
+					</article>
+					
+					<article>
+						<div class="info"><h3>Mountain Outpost</h3> by <a href="">Brendan Zabarauskas</a></div>
+						<img src="images/3.jpg">
+					</article>
+					
+					<article>
+						<div class="info"><h3>Cliffs</h3> by <a href="">Brendan Zabarauskas</a></div>
+						<img src="images/hexaplex_action_cards_300.png">
+					</article>
+					
+					<article>
+						<div class="info"><h3>Hill Fort</h3> by <a href="">Brendan Zabarauskas</a></div>
+						<img src="images/hexaplex_board_n_cards_color_300.png">
+					</article>
+					
+				</div> <!-- .inner -->
+				
+			</div> <!-- #overflow -->
+		
+		</div> <!-- #slides -->
+	
+	
+		<!-- Controls and Active Slide Display -->
+	
+		<div id="controls">
+
+			<label for="slide1 fa fa-arrow"></label>
+			<label for="slide2"></label>
+			<label for="slide3"></label>
+			<label for="slide4"></label>
+			<label for="slide5"></label>
+		
+		</div> <!-- #controls -->
+		
+		<div id="active">
+
+			<label for="slide1"></label>
+			<label for="slide2"></label>
+			<label for="slide3"></label>
+			<label for="slide4"></label>
+			<label for="slide5"></label>
+			
+		</div> <!-- #active -->
+	
+	</article>        
+        
         <div class="blueprints">
             <figure class="stack stack-sidegrid">
                 <img />
@@ -46,6 +126,29 @@
         
 		<div class="container">
             
+            <section class="logo">
+                
+                <div class="circular-menu">
+
+                  <div class="circle">
+                    <a local="#gamedesign" class="fa fa-gamepad fa-2x"></a>
+                    <a local="#gameprogramming" class="fa fa-code fa-2x"></a>
+                    <a href="http://linkedin.com/pub/dominik-haas/81/a65/844" target="_blank" class="fa fa-linkedin fa-2x"></a>
+                    <a href="http://github.com/DomDomHaas" target="_blank" class="fa fa-github fa-2x"></a>
+                    <a href="http://twitter.com/DomDomHaas" target="_blank" class="fa fa-twitter fa-2x"></a>
+                    <a href="http://domdomhaas.github.io" target="_blank" class="fa fa-cogs fa-2x"></a>
+                    <a href="mailto: dominik.haas@gmx.ch" target="_blank" class="fa fa-envelope fa-2x"></a>
+                    <a local="#visualdesign" class="fa fa-pencil fa-2x"></a>
+                  </div>
+
+                  <a href="" class="menu-button fa fa-2x scaling"></a>
+                  <img class="logoimg" src="images/icons/Logo.png"/>
+
+                </div>
+            </section>
+            <script src="js/logo.js"></script>
+            
+            
             <section class="intro">
                 <div class="about">
                     <p>Hi, my name is Dominik Haas, I love playing games and I'm passionate about making them.</p>
@@ -54,28 +157,26 @@
                 </div>
             </section>
             
-            <!--
-			<header class="clearfix">
-                <div class="initials">D</div>
-                
-				<h1>Portfolio <span>by Dominik Haas</span></h1>
-                Hi, my name is Dominik Haas, I love playing games and I'm passionate about making them.
-                <br/>After several years working as a application engineer I started studying Game Design.
-                <br/>I'm fond of mechanics that connect players in a fun &amp; exciting way.
-                
-			</header>
-            -->
             <section class="main">
 				<ul id="og-grid" class="og-grid">
-                    <li class="clearfix header vd">
+                    <li local="#visualdesign" class="gonext fa fa-2x fa-arrow-circle-down floating"></li>
+                    
+                    <li id="visualdesign" class="clearfix header vd">
                         <p>Visual Design</p>
                     </li>
 					<li>
-						<a data-largesrc="images/hexaplex_action_cards_300.png" data-title="Azuki bean" data-trailer="https://www.youtube.com/embed/sQpYPeC1kg0" data-link="http://www.schlichtgame.ch"
-                           data-name="Schlicht"
-                           data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
-							<img class="vd" src="images/thumbs/hexaplex_action_cards_250.png" alt="img01"/>
-						</a>                        
+                        <div class="ch-item vd" style="background-image: url('images/thumbs/hexaplex_action_cards_250.png')" data-trailer="https://www.youtube.com/embed/sQpYPeC1kg0" data-link="http://www.schlichtgame.ch"
+                               data-name="Schlicht"
+                               data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
+                            <div class="ch-info"><h3>Schlicht</h3><p>a atmospheric puzzler</p></div>
+                            
+                            <!--a data-largesrc="images/hexaplex_action_cards_300.png" data-title="Azuki bean" data-trailer="https://www.youtube.com/embed/sQpYPeC1kg0" data-link="http://www.schlichtgame.ch"
+                               data-name="Schlicht"
+                               data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
+                                <img class="vd" src="images/thumbs/hexaplex_action_cards_250.png" alt="img01"/>
+                            </a-->
+                        </div>
+                            
 					</li>
 					<li>
 						<a data-largesrc="images/hexaplex_board_n_cards_300.png" data-title="Azuki bean" data-trailer="https://www.youtube.com/embed/4H1uiBKUC0o"
@@ -91,17 +192,22 @@
 							<img class="vd" src="images/thumbs/hexaplex_board_n_cards_color_250.png" alt="img01"/>
 						</a>
 					</li>
+                    <li local="#gamedesign" class="gonext fa fa-2x fa-arrow-circle-down floating"></li>
                     
-                    <li class="clearfix header gd">
+                    <li id="gamedesign" class="clearfix header gd">
                         <p>Game Design</p>
                     </li>
                     
 					<li>
-						<a data-largesrc="images/hexaplex_closeup_board_n_cards_color_300.png" data-title="Azuki bean" data-link="http://www.schlichtgame.ch"
+                        <div class="ch-item" style="background-image: url('images/thumbs/hexaplex_closeup_board_n_cards_color_250.png')">
+                            <div class="ch-info"><h3>Schlicht</h3><p>a atmospheric puzzler</p></div>
+                        
+						<!--a data-largesrc="images/hexaplex_closeup_board_n_cards_color_300.png" data-title="Azuki bean" data-link="http://www.schlichtgame.ch"
                            data-name="Schlicht"
                            data-description="Swiss chard pumpkin bunya nuts maize plantain aubergine napa cabbage soko coriander sweet pepper water spinach winter purslane shallot tigernut lentil beetroot.">
 							<img class="gd" src="images/thumbs/hexaplex_closeup_board_n_cards_color_250.png" alt="img01"/>
-						</a>
+						</a-->
+                            </div>
 					</li>
 					<li>
 						<a data-largesrc="images/hexaplex_action_cards_300.png" data-title="Azuki bean"
@@ -117,8 +223,9 @@
 							<img class="gd" src="images/thumbs/hexaplex_action_cards_250.png" alt="img01"/>
 						</a>
 					</li>
+                    <li local="#gameprogramming" class="gonext fa fa-2x fa-arrow-circle-down floating"></li>
                     
-                    <li class="clearfix header gp">
+                    <li id="gameprogramming" class="clearfix header gp">
                         <p>Game Programming</p>
                     </li>
                     
@@ -147,12 +254,13 @@
 				</ul>
 			</section>
 
-            <section class="footer">
-                <a href="mailto: dominik.haas@gmx.ch" target="_blank"><img src="images/icons/email.png" /></a>
-                <a href="http://domdomhaas.github.io" target="_blank"><img src="images/icons/gears.png" /></a>
-                <a href="http://twitter.com/DomDomHaas" target="_blank"><img src="images/icons/twitter.png" /></a>
-                <a href="http://github.com/DomDomHaas" target="_blank"><img src="images/icons/github.png" /></a>
-                <a href="http://linkedin.com/pub/dominik-haas/81/a65/844" target="_blank"><img src="images/icons/linkedin.png" /></a>                
+            <section class="footer tt-wrapper">
+                <a href="mailto: dominik.haas@gmx.ch" target="_blank"><span>Email</span><img src="images/icons/email.png" /></a>
+                <a href="http://domdomhaas.github.io" target="_blank"><span>Dev Blog</span><img src="images/icons/gears.png" /></a>
+                <!-- a href="http://twitter.com/DomDomHaas" target="_blank"><img src="images/icons/twitter.png" /></a -->
+                <a href="http://twitter.com/DomDomHaas" target="_blank"><span>Twitter</span><img src="images/icons/twitter.png" /></a>
+                <a href="http://github.com/DomDomHaas" target="_blank"><span>Github</span><img src="images/icons/github.png" /></a>
+                <a href="http://linkedin.com/pub/dominik-haas/81/a65/844" target="_blank"><span>Linkedin</span><img src="images/icons/linkedin.png" /></a>                
             </section>
             
             

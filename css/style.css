@@ -1,7 +1,7 @@
 /*@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700); */
 
 @import url(http://fonts.googleapis.com/css?family=Exo|Lekton|Iceland|Passero+One|Corben|Expletus+Sans|Baumans);
-
+/*
 @font-face {
    font-family: 'calamity';
    src: url( ../fonts/CalamityJaneNF.ttf);
@@ -13,7 +13,7 @@
    src: url( ../fonts/cafeandbrewery.ttf);
    src: local ('Ø'), url( ../fonts/cafeandbrewery.ttf) format('ttf')
 }
-
+*/
 
 
 html { height: 100%; }
@@ -47,12 +47,14 @@ a {
 }
 
 .container > header, .container section .about{
+    /*
 	width: 90%;
 	max-width: 1280px;
+    */
+    max-width: 650px;
 	margin: 0 auto;
 	position: relative;
-	padding: 0 30px 50px 30px;
-	padding: 60px 30px 50px;
+	padding: 100px 0 0;
 	text-align: center;
     font-size: 40px;
 }
@@ -60,7 +62,7 @@ a {
 .container section.main{
     padding: 0 0 450px;
 }
-
+/*
 
 .container > header .initials {
   border: 5px dotted;
@@ -72,23 +74,29 @@ a {
   letter-spacing: 5px;
   padding: 20px 10px;
 }
+*/
 
 .main > p {
 	text-align: center;
 	padding: 50px 20px;
 }
 
-.main > .og-grid li a img.vd{
+.main > .og-grid li .ch-item.vd{
     /* circle */
     border-radius: 50%;
 }
 
 
-.main > .og-grid li a img.gd{
+.main > .og-grid li .ch-item.gd{
     /* smooth rectangle */
     border-radius: 50px;
 }
 
+.main > .og-grid li .ch-item.gp{
+    /* ensure rectangle */
+    border-radius: 0px;
+}
+    
 .main > .og-grid li.header {
     margin: 100px 0px 0px 0px;
     padding: 10px 0;
@@ -97,10 +105,17 @@ a {
     /* box-shadow: 0 10px 10px -15px; */
 }
 
+.gonext {
+    display: block;
+    height: 30px;
+    padding: 0;
+    cursor: pointer;
+}
+
 .main > .og-grid li.gonext {
     display: block;
     height: 30px;
-    margin: 300px 0 0;
+    margin: 150px 0 0;
     padding: 0;
     cursor: pointer;
 }
@@ -157,9 +172,18 @@ a {
     text-align: center;
 }
 
+.title {
+    font-size: 40px;
+    margin: 0 auto;
+    max-width: 640px;
+    min-width: 480px;
+    padding: 50px 0;
+    text-align: center;
+}
+
 .container section.intro .about > p {
     margin: 25px auto;
-    max-width: 550px;
+    font-weight: 700;
 }
 
 .container section.logo {
@@ -214,6 +238,7 @@ body p{
 
 .old_expaner{
     background-color: #343838;
+    color: #00DFFC;    
 }
 
 .og-expander {
@@ -255,11 +280,17 @@ body p{
     background-color: #00B4CC;
 }
 
-.og-grid li.og-expanded > a::after {
+.og-grid li.og-expanded > a:after {
     border-bottom-color: #00dffc;
 }
 
-.og-close:hover:before, .og-close:hover:after{
+.og-close:hover:before, .og-close:hover::after{
     background-color: #00DFFC;
 }
+
+.og-grid li.og-expanded .ch-item::after {
+    top: 300px;
+    border-bottom-color: #00DFFC;    
+}
+
 
