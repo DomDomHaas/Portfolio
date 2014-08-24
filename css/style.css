@@ -99,9 +99,10 @@ a {
     
 .main > .og-grid li.header {
     margin: 100px 0px 0px 0px;
-    padding: 10px 0;
+    padding: 50px 0;
     width: 100%;
     height: auto;
+    font-weight: 700;
     /* box-shadow: 0 10px 10px -15px; */
 }
 
@@ -151,8 +152,8 @@ a {
 }
 
 .header.gp, .og-details.gp h3{
-    /* font-family: 'Lekton', sans-serif; */
     font-family: 'Iceland';
+    font-weight: 100;    
 }
 
 .header.gp p {

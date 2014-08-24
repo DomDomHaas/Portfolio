@@ -213,7 +213,7 @@ document.querySelector('.gonext').onclick = function(e) {
 		support = Modernizr.csstransitions,
 		// default settings
 		settings = {
-			minHeight : 500,
+			minHeight : 700,
 			speed : 350,
 			easing : 'ease'
 		};
@@ -488,25 +488,36 @@ document.querySelector('.gonext').onclick = function(e) {
 
                     /*** fill in stack images ***/
                     var currentStack = $imgStack.clone(false, false);
-                    var path = "images/thumbs/";
+                    //var path = "images/thumbs/";
 
                     var fullimg = $(this).parent();
                     var lastInd = $(this).attr('src').lastIndexOf("/") + 1;
                     var imgFile = $(this).attr('src').substring(lastInd);
                     var imgFile = imgFile.substring(0, imgFile.length - 4);
 
+                    var path = $(this).attr('src').substring(0, $(this).attr('src').lastIndexOf("/") + 1);
+                    var filePrefix = imgFile.substring(0, imgFile.indexOf("_"));
+                    var fileSize = "600";
                     
                     $(this).remove();
                     
                     $(currentStack).find('img').each(function (index, element){
 
-                        var stackImgPath = path + imgFile + "_" + index + ".png";
+//                        var stackImgPath = path + imgFile + "_" + index + ".png";
+                        var stackImgPath = path + filePrefix + "_" + fileSize + "_" + index + ".png";
                         
                         //alert('path ' + stackImgPath + ' element ' + element);
 
                         if( typeof fullimg !== 'undefined' ) {
-                            $(element).attr('src', stackImgPath);
-                            $(currentStack).append(element);
+                            
+                           var img = new Image();
+                           img.src = stackImgPath;
+                           if (img.height != 0){                            
+                               $(element).attr('src', stackImgPath);
+                               $(currentStack).append(element);
+                           } else {
+                               $(element).remove();                               
+                           }
                         }
                     });
                     
