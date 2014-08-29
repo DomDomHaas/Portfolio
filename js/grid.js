@@ -210,13 +210,28 @@ document.querySelector('.gonext').onclick = function(e) {
 		},
 		transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
 		// support for csstransitions
-		support = Modernizr.csstransitions,
+		support = Modernizr.csstransitions;
+            
+        var settings, minH = 700;
+    
 		// default settings
+        if ($window.width() < 768){
+            minH = $window.height();
+        }
+    
+        settings = {
+            minHeight : minH,
+            speed : 350,
+            easing : 'ease'
+        };
+    
+    /*
 		settings = {
 			minHeight : 700,
 			speed : 350,
 			easing : 'ease'
 		};
+    */
 
 	function init( config ) {
 		
@@ -276,6 +291,7 @@ document.querySelector('.gonext').onclick = function(e) {
 		
 		// on window resize get the window´s size again
 		// reset some values..
+        /*
 		$window.on( 'debouncedresize', function() {
 			
 			scrollExtra = 0;
@@ -289,11 +305,11 @@ document.querySelector('.gonext').onclick = function(e) {
 			}
 
 		} );
-
+        */
 	}
 
 	function initItemsEvents( $items ) {
-		$items.on( 'click', 'span.og-close', function() {
+		$items.on( 'click', '.og-close', function() {
 			hidePreview();
 			return false;
 		} ).children( '.ch-item' ).on( 'click', function(e) {
@@ -374,8 +390,8 @@ document.querySelector('.gonext').onclick = function(e) {
                                     '<button type="button">Watch the Trailer</button> ' +
                                     '<div class="morph-content"> ' +
                                         '<div> <div class="content-style-video">' +
-                                                '<span class="icon icon-close">Close the dialog</span>' +
-                                                '<iframe class="trailer" width="640" height="360" src="" frameborder="0" allowfullscreen="true"></iframe>' +
+                                            '<span class="icon icon-close">Close the dialog</span>' +
+                                            '<iframe class="trailer" width="640" height="360" src="" frameborder="0" allowfullscreen="true"></iframe>' +
                                         '</div>' +
                                         '</div>' +
                                     '</div>' +
@@ -387,7 +403,8 @@ document.querySelector('.gonext').onclick = function(e) {
 			this.$loading = $( '<div class="fa fa-circle-o-notch fa-spin"></div>' );            
 			this.$fullimage = $( '<div class="og-fullimg"></div>' ).append( this.$loading );
             
-			this.$closePreview = $( '<span class="og-close"></span>' );
+			this.$closePreview = $( '<div class="fa fa-times fa-2x og-close"></div>' );
+//			this.$closePreview = $( '<span class="og-close"></span>' );
 			this.$previewInner = $( '<div class="og-expander-inner"></div>' ).append( this.$closePreview, this.$fullimage, this.$details );
 			this.$previewEl = $( '<div class="og-expander"></div>' ).append( this.$previewInner );
 			// append preview element to the item
@@ -401,6 +418,8 @@ document.querySelector('.gonext').onclick = function(e) {
         
 		update : function( $item ) {
 
+            this.$loading.show();
+            
 			if( $item ) {
 				this.$item = $item;
 			}
@@ -438,44 +457,53 @@ document.querySelector('.gonext').onclick = function(e) {
 			if( typeof self.$largeImg != 'undefined' ) {
 				self.$largeImg.remove();
 			}
+            
+            //setup classes for detail
+            
+            //var fontClass = $itemEl.parent().find('a > img').attr('class');
+            //self.$details.addClass(fontClass);
+            if ($itemEl.hasClass('vd')){
+                self.$details.addClass('vd');
+            }
+            if ($itemEl.hasClass('gd')){
+                self.$details.addClass('gd');
+            }
+            if ($itemEl.hasClass('gp')){
+                self.$details.addClass('gp');
+            }
+
+            //setup trailer link
+            
+            var projectName = $itemEl.parent().parent().parent().parent().find('> a').attr("data-name");
+
+            if (typeof eldata.trailer !== 'undefined'){                    
+                self.$trailer.find('.trailer').attr('src', eldata.trailer);
+                self.$trailer.find('button').text(eldata.projectname + ' trailer');
+                self.$trailer.show();
+            } else {
+                self.$trailer.hide();
+            }
+
+            //setup webpage link
+
+            if (typeof eldata.href !== 'undefined'){
+                self.$href.attr('href', eldata.href);
+                self.$href.text("Visit " + eldata.projectname);
+                self.$href.show();
+            } else {
+                self.$href.hide();
+            }            
+            
+            this.createStack($itemEl);
 
 			// preload large image and add it to the preview
 			// for smaller screens we don´t display the large image (the media query will hide the fullimage wrapper)
-			if( self.$fullimage.is( ':visible' ) ) {
+			//if( self.$fullimage.is( ':visible' ) ) {
                 
-				this.$loading.show();
                 
-                //var fontClass = $itemEl.parent().find('a > img').attr('class');
-                //self.$details.addClass(fontClass);
-                if ($itemEl.hasClass('vd')){
-                    self.$details.addClass('vd');
-                }
-                if ($itemEl.hasClass('gd')){
-                    self.$details.addClass('gd');
-                }
-                if ($itemEl.hasClass('gp')){
-                    self.$details.addClass('gp');
-                }
-            
-                var projectName = $itemEl.parent().parent().parent().parent().find('> a').attr("data-name");
-                    
-                if (typeof eldata.trailer !== 'undefined'){                    
-                    self.$trailer.find('.trailer').attr('src', eldata.trailer);
-                    self.$trailer.find('button').text(eldata.projectname + ' trailer');
-                    self.$trailer.show();
-                } else {
-                    self.$trailer.hide();
-                }
-
-
-                if (typeof eldata.href !== 'undefined'){
-                    self.$href.attr('href', eldata.href);
-                    self.$href.text("Visit " + eldata.projectname);
-                    self.$href.show();
-                } else {
-                    self.$href.hide();
-                }                
                 
+                
+                /*
 				$( '<img/>' ).load( function() {
 					var $img = $( this );
 					if( $img.attr( 'src' ) === self.$item.children('.ch-item').attr( 'src' ) ) {
@@ -485,56 +513,93 @@ document.querySelector('.gonext').onclick = function(e) {
 						self.$fullimage.append( self.$largeImg );
 					}
 
-
-                    /*** fill in stack images ***/
-                    var currentStack = $imgStack.clone(false, false);
-                    //var path = "images/thumbs/";
-
-                    var fullimg = $(this).parent();
-                    var lastInd = $(this).attr('src').lastIndexOf("/") + 1;
-                    var imgFile = $(this).attr('src').substring(lastInd);
-                    var imgFile = imgFile.substring(0, imgFile.length - 4);
-
-                    var path = $(this).attr('src').substring(0, $(this).attr('src').lastIndexOf("/") + 1);
-                    var filePrefix = imgFile.substring(0, imgFile.indexOf("_"));
-                    var fileSize = "600";
-                    
-                    $(this).remove();
-                    
-                    $(currentStack).find('img').each(function (index, element){
-
-//                        var stackImgPath = path + imgFile + "_" + index + ".png";
-                        var stackImgPath = path + filePrefix + "_" + fileSize + "_" + index + ".png";
-                        
-                        //alert('path ' + stackImgPath + ' element ' + element);
-
-                        if( typeof fullimg !== 'undefined' ) {
-                            
-                           var img = new Image();
-                           img.src = stackImgPath;
-                           if (img.height != 0){                            
-                               $(element).attr('src', stackImgPath);
-                               $(currentStack).append(element);
-                           } else {
-                               $(element).remove();                               
-                           }
-                        }
-                    });
-                    
-                    var scritpAlreadyAdded = $(fullimg).parent().find('script');
-                    if (typeof scritpAlreadyAdded !== 'undefined'){
-                        $(scritpAlreadyAdded).remove();
-                    }
-                    $(fullimg).append( currentStack ).after('<script src="js/simplestack.js"></script>');
-                    
-
 				} ).attr( 'src', eldata.largesrc );
                 
+                */
                 
+                 
                 
-			}
+			//}
 
+		},
+		createStack : function( $itemEl ) {
+               /*** fill in stack images ***/
             
+            /*
+            var $li = $itemEl.parent();
+            
+            if ($li 
+            */
+
+            var currentStack = this.$previewInner.find('.stack');
+            
+            
+            if (typeof currentStack.find('img').get(0) == 'undefined'){
+                // initial creation clone from blueprint
+                currentStack = $imgStack.clone(false, false);
+            }
+            
+            var lastInd = $itemEl.attr('src').lastIndexOf("/") + 1;
+            var imgFile = $itemEl.attr('src').substring(lastInd);
+            var imgFile = imgFile.substring(0, imgFile.length - 4);
+
+            var path = $itemEl.attr('src').substring(0, $itemEl.attr('src').lastIndexOf("/") + 1);
+            var filePrefix = imgFile.substring(0, imgFile.indexOf("_"));
+            var fileSize = "600";
+
+
+            currentStack = this.replaceImgs(currentStack, path, filePrefix, fileSize);
+
+
+            if (typeof currentStack.get(0) !== 'undefined'){
+                
+                var scritpAlreadyAdded = this.$previewInner.find('script');
+                if (typeof scritpAlreadyAdded !== 'undefined'){
+                    $(scritpAlreadyAdded).remove();
+                }
+
+
+                // replacing stack
+                if (typeof this.$fullimage !== 'undefined'){
+                    this.$fullimage.remove();
+//                } else {
+                }
+                
+                
+                if (typeof this.$previewInner.find('.stack').get(0) !== 'undefined'){
+                    this.$previewInner.find('.stack').replaceWith(currentStack);
+                }else{
+                    this.$previewInner.prepend(currentStack);
+                }
+
+                //readded simplestack.js to rerun it
+                this.$previewInner.append('<script src="js/simplestack.js"></script>');            
+            }
+
+
+		},
+		replaceImgs : function( currentStack, path, filePrefix, fileSize) {
+
+            var stackImgPath = path + filePrefix + "_" + fileSize;
+            
+            $(currentStack).find('img').each(function (index, element){
+
+               $(element).attr('src', stackImgPath + "_" + index + ".png" );
+                
+/*
+               var img = new Image();
+               img.src = stackImgPath + "_" + index + ".png";
+               if (img.height != 0){                            
+                   $(element).attr('src', stackImgPath + "_" + index + ".png" );
+                   //$(currentStack).append(element);
+               //} else {
+                //   $(element).remove();                               
+                }
+*/
+
+            });
+            
+            return currentStack;
 		},
 		open : function() {
 
