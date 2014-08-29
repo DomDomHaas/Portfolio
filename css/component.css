@@ -9,10 +9,17 @@
 
 .og-grid li {
 	display: inline-block;
-	margin: 120px 60px 0;
+	/* margin: 120px auto 0; */
+    margin: 10% 4.5% 0;    
+    
 	vertical-align: top;
 	/* height: 250px; */
 }
+
+.og-grid li.header {
+    margin: 10% auto 0;
+}
+
 /*
 .og-grid li a,
 .og-grid li a img {
@@ -58,10 +65,22 @@
 	position: absolute;
 	width: 40px;
 	height: 40px;
-	top: 20px;
-	right: 20px;
+    
+    right: 2%;
+    top: 2%;
+    padding: 3px 5px 4px 7px;
+    
+    border: 1px solid;
+    border-radius: 50%;
 	cursor: pointer;
+    z-index: 10;
 }
+
+.og-close:hover {
+    box-shadow: 0 0 5px 0 white;
+}
+
+/*
 
 .og-close::before,
 .og-close::after {
@@ -86,6 +105,7 @@
 .og-close:hover::after {
 	background: #333;
 }
+*/
 
 .og-fullimg,
 .og-details {
@@ -96,8 +116,8 @@
 	position: relative;
 }
 
-.og-details {
-	padding: 0 40px 0 20px;
+.og-details {    
+	padding: 0 2% 0 10%;
 }
 
 .og-fullimg {
@@ -113,7 +133,7 @@
 .og-details h3 {
 	/* font-weight: 300; */
 	font-size: 52px;
-	padding: 40px 0 10px;
+	padding: 3% 0 6% 0;
 	margin-bottom: 10px;
     line-height: 1.1;
 }
@@ -199,8 +219,12 @@
 
 @media screen and (max-width: 650px) {
 
-	.og-fullimg { display: none; }
-	.og-details { float: none; width: 100%; }
+	.og-fullimg {
+        display: none;
+    }
+	.og-details {
+        float: none; width: 100%;
+    }
 	
 }
 
@@ -208,11 +232,17 @@
 /***** Stack Effect *****/
 
 .stack {
-	margin: 20px auto;
+    float: left;
+	margin: 2% auto 2% 4%;
 	width: 600px;
 	padding: 0;
 	position: relative;
 	max-width: 100%;
+}
+
+.stack figure {
+    margin: 0;
+    padding: 0;
 }
 
 .stack img {

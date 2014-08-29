@@ -96,7 +96,7 @@
 
 .circle a {
     text-decoration: none;
-    color: #00B4CC;
+    color: #00DFFC;
     display: block;
     height: 40px;
     width: 40px;
@@ -133,6 +133,21 @@
 .menu-button:hover {
   background-color: #eef;
 }
+
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    
+    .circle {
+        width: 225px;
+        height: 225px;
+    }
+    
+    .circular-menu {
+        width: 225px;
+        height: 225px;
+    }
+}
+
 
 
 /*** imgs Hover effect  ***/

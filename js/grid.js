@@ -213,11 +213,12 @@ document.querySelector('.gonext').onclick = function(e) {
 		support = Modernizr.csstransitions;
             
         var settings, minH = 700;
-    
+    /*
 		// default settings
         if ($window.width() < 768){
-            minH = $window.height();
+            minH = 600;
         }
+    */
     
         settings = {
             minHeight : minH,
@@ -493,6 +494,10 @@ document.querySelector('.gonext').onclick = function(e) {
             } else {
                 self.$href.hide();
             }            
+
+            if (typeof eldata.trailer == 'undefined' && typeof eldata.href == 'undefined'){
+                this.$previewEl.attr('style', 'height: 500px');
+            }
             
             this.createStack($itemEl);
 

@@ -18,13 +18,21 @@
 
 html { height: 100%; }
 
+/*
 *,
 *:after,
 *:before {
+*/
+* {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	padding: 0;
+	margin: 0;
+}
+
+body h1 {
+    /* overwrite the normalizer.css */
 	margin: 0;
 }
 
@@ -46,7 +54,14 @@ a {
 	position: relative;
 }
 
-.container > header, .container section .about{
+/*
+.container section {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+*/
+
+.about{
     /*
 	width: 90%;
 	max-width: 1280px;
@@ -59,11 +74,12 @@ a {
     font-size: 40px;
 }
 
-.container section.main{
-    padding: 0 0 450px;
+.main{
+    /* padding: 0 0 450px; */
+    padding: 0;
 }
-/*
 
+/*
 .container > header .initials {
   border: 5px dotted;
   border-radius: 200px;
@@ -97,7 +113,7 @@ a {
     border-radius: 0px;
 }
     
-.main > .og-grid li.header {
+.header {
     margin: 100px 0px 0px 0px;
     padding: 50px 0;
     width: 100%;
@@ -109,14 +125,7 @@ a {
 .gonext {
     display: block;
     height: 30px;
-    padding: 0;
-    cursor: pointer;
-}
-
-.main > .og-grid li.gonext {
-    display: block;
-    height: 30px;
-    margin: 150px 0 0;
+    width: 30px;
     padding: 0;
     cursor: pointer;
 }
@@ -124,6 +133,7 @@ a {
 
 .footer {
     text-align: center;
+    margin: 25% auto 0;
     /*
     margin: 200px auto 0;
     box-shadow: 0 -10px 10px -15px;
@@ -169,7 +179,7 @@ a {
     background-image: url("../images/texture/dots-300x300-fine_transparent.png");
 }
 
-.container section.intro{
+.intro{
     text-align: center;
 }
 
@@ -182,19 +192,20 @@ a {
     text-align: center;
 }
 
-.container section.intro .about > p {
+.about > p {
     margin: 25px auto;
     font-weight: 700;
+    color: #00dffc;
 }
 
-.container section.logo {
+.logo {
     padding: 80px 0 50px;
     text-align: center;
     background-color: #111;
     background-image: url("../images/texture/dots-300x300-fine_transparent.png");
 }
 
-.container section.logo > img{
+.logo > img{
     width: 100px;
     height: 100px;
 }
@@ -277,16 +288,12 @@ body p{
     color: #00DFFC;
 }
 
-.og-close:before, .og-close:after{
-    background-color: #00B4CC;
+.og-close {
+    color: #00B4CC;
 }
 
-.og-grid li.og-expanded > a:after {
-    border-bottom-color: #00dffc;
-}
-
-.og-close:hover:before, .og-close:hover::after{
-    background-color: #00DFFC;
+.og-close:hover{
+    color: #00DFFC;
 }
 
 .og-grid li.og-expanded .ch-item::after {
@@ -294,4 +301,224 @@ body p{
     border-bottom-color: #00DFFC;    
 }
 
+
+
+
+
+
+
+/**** title and background ****/
+
+@media screen and (min-width: 320px) and (max-width: 640px) {
+
+    section.logo{
+        padding: 0;
+    }
+    
+    .title{
+        min-width: 0;
+    }
+    
+    .title {
+        font-size: 21px;
+        padding: 10% 0 5%;
+    }    
+    
+    .about{
+        font-size: 21px;
+        padding: 5% 5%;
+    }
+    
+    .about > p {
+        margin: 12% auto;    
+    }
+    
+    .main > .og-grid li.gonext{
+        margin: 10% 40% 0;
+    }
+    
+    .about > p:last-child {
+      margin-bottom: 5%;
+    }
+    
+    .main{
+        padding: 0;
+    }
+
+    .main > .og-grid li .ch-item {
+        max-width: 200px;
+        max-height: 200px;
+    }
+    
+    
+    .og-grid li.header{
+        margin: 25% auto 0;
+        padding: 0;
+    }
+    
+    .og-grid li{
+        margin: 15% 5% 0;
+    }
+    
+    .og-expander-inner{
+        padding: 10%;
+    }
+    
+    .stack{
+        margin: 0 auto;
+        height: 300px;
+        width: 300px;
+    }
+    
+    .og-details{
+        padding: 0;
+    }
+        
+    .morph-button-modal-4, .morph-button-modal-4 .morph-content{
+        height: 75px;
+    }
+    .morph-button-modal-4 > button{
+        line-height: 73px;   
+    }    
+    
+    .tt-wrapper a span{
+        display: none;
+    }
+    
+    .og-grid li.og-expanded .ch-item:after{
+        top: 100%;
+    }
+    
+}
+
+/**** mobile breaks title and background ****/
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    
+    
+}
+
+
+
+@media screen and (min-width: 400px) and (max-width: 640px) {
+ 
+
+    
+}
+
+@media screen and (min-width: 480px) and (max-width: 640px) {
+
+
+    
+}
+
+/**** screenblock paddings ****/
+
+@media screen and (min-width: 540px) and (max-width: 640px) {
+
+
+    
+}
+
+@media screen and (min-width: 980px) and (max-width: 1024px) {
+
+
+    
+}
+
+
+@media screen and (min-width: 640px) and (max-width: 720px) {
+    
+
+    
+}
+
+@media screen and (min-width: 721px) and (max-width: 768px) {
+
+
+    
+}
+
+
+@media screen and (min-width: 320px) and (max-width: 768px){
+
+
+    
+}
+
+
+@media screen and (min-width: 768px) {
+
+    .og-close {
+        top: 5%;
+    }
+
+    body h1 {
+        /* overwrite the normalizer.css */
+        font-size: 60px;
+    }
+    
+}
+
+    
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) and (orientation:portrait){
+
+
+    
+}
+
+@media screen and (min-width: 360px) and (max-width: 640px) and (orientation:portrait){
+
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 800px) and (orientation:portrait){
+
+    
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation:portrait){
+
+
+    
+}
+
+@media screen and (min-width: 1024px) {
+    
+
+}
+
+@media screen and (min-width: 768px){
+    
+
+
+}
+
+/**** pic sizes and paddings ****/
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    
+
+}
+
+@media screen and (min-width: 480px) and (max-width: 640px) {
+    
+
+}
+
+@media screen and (min-width: 640px) {
+
+
+}
+
+
+/**** different footer for mobile devices ****/
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+
+
+
+}
 
