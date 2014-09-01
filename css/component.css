@@ -212,8 +212,9 @@
 @media screen and (max-width: 830px) {
 
 	.og-expander h3 { font-size: 32px; }
-	.og-expander p { font-size: 13px; }
-	.og-expander a { font-size: 12px; }
+	.og-expander p { font-size: 15px; }
+    
+	/*.og-expander a { font-size: 12px; } */
 
 }
 
@@ -342,7 +343,7 @@
 .morph-button-fixed .morph-content {
 	width: 250px;
     height: 55px;
-	margin: 75px 30px 0 0;
+	margin: 75px 10% 0 0;
     border: 3px solid #333;
 }
 

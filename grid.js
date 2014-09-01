@@ -143,7 +143,7 @@ $.fn.imagesLoaded = function( callback ) {
 
 			// if complete is true and browser supports natural sizes, try
 			// to check for image status manually
-			if ( el.complete && el.naturalWidth !== 'undefined' ) {
+			if ( el.complete && el.naturalWidth !== undefined ) {
 				imgLoaded( el, el.naturalWidth === 0 || el.naturalHeight === 0 );
 				return;
 			}
@@ -162,31 +162,11 @@ $.fn.imagesLoaded = function( callback ) {
 };
 
 var Grid = (function() {
- 
 
-    var gonexts = document.querySelectorAll('.gonext');
-    
-    for(var i = 0; i < gonexts.length; i++){    
-        $(gonexts[i]).on('click', { target: $(gonexts[i]).attr('local') }, function(event) {
-                                    $('body').scrollTo(event.data.target, 1000);
-                                    //alert('in gonext click');
-                                    });
-    }
-
-/*
- 
-document.querySelector('.gonext').onclick = function(e) {
-   e.preventDefault(); document.querySelector('.circle').classList.toggle('open');
-}    
-
-    
-		var $trailButton = $('.blueprints .morph-button'), 
-		$websiteButton = $('.blueprints .website-link'), 
-  */          
-		var $imgStack = $('.blueprints .stack'), 
-            
+		// grid selector
+		var $selector = '#og-grid', 
 		// list of items
-		$grid = $( '#og-grid' ),
+		$grid = $( $selector ),
 		// the items
 		$items = $grid.children( 'li' ),
 		// current expanded item's index
@@ -210,28 +190,13 @@ document.querySelector('.gonext').onclick = function(e) {
 		},
 		transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
 		// support for csstransitions
-		support = Modernizr.csstransitions;
-            
-        var settings, minH = 700;
-    
-        if ($window.width() < 768){
-		  // mobile is longer because everything is under each other
-            minH = 750;
-        }
-    
-        settings = {
-            minHeight : minH,
-            speed : 350,
-            easing : 'ease'
-        };
-    
-    /*
+		support = Modernizr.csstransitions,
+		// default settings
 		settings = {
-			minHeight : 700,
+			minHeight : 500,
 			speed : 350,
 			easing : 'ease'
 		};
-    */
 
 	function init( config ) {
 		
@@ -291,7 +256,6 @@ document.querySelector('.gonext').onclick = function(e) {
 		
 		// on window resize get the window´s size again
 		// reset some values..
-        /*
 		$window.on( 'debouncedresize', function() {
 			
 			scrollExtra = 0;
@@ -305,14 +269,14 @@ document.querySelector('.gonext').onclick = function(e) {
 			}
 
 		} );
-        */
+
 	}
 
 	function initItemsEvents( $items ) {
-		$items.on( 'click', '.og-close', function() {
+		$items.on( 'click', 'span.og-close', function() {
 			hidePreview();
 			return false;
-		} ).children( '.ch-item' ).on( 'click', function(e) {
+		} ).children( 'a' ).on( 'click', function(e) {
 
 			var $item = $( this ).parent();
 			// check if item already opened
@@ -378,33 +342,15 @@ document.querySelector('.gonext').onclick = function(e) {
 	}
 
 	Preview.prototype = {
-        
 		create : function() {
 			// create Preview structure:
-            
-            // right side text
 			this.$title = $( '<h3></h3>' );
-			this.$description = $( '<p></p>' );            
-			this.$href = $( '<a class="website-link" target="_blank" href="#">Visit website</a>' );
-            this.$trailer = $('<div class="morph-button morph-button-modal morph-button-modal-4 morph-button-fixed"> ' +
-                                    '<button type="button">Watch the Trailer</button> ' +
-                                    '<div class="morph-content"> ' +
-                                        '<div> <div class="content-style-video">' +
-                                            '<span class="icon icon-close">Close the dialog</span>' +
-                                            '<iframe class="trailer" width="640" height="360" src="" frameborder="0" allowfullscreen="true"></iframe>' +
-                                        '</div>' +
-                                        '</div>' +
-                                    '</div>' +
-                                '</div>' +
-                                '<script src="js/simplebutton.js"></script>');
-			this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$description, this.$trailer, this.$href );
-            
-            // left side img
-			this.$loading = $( '<div class="fa fa-circle-o-notch fa-spin"></div>' );            
+			this.$description = $( '<p></p>' );
+			this.$href = $( '<a href="#">Visit website</a>' );
+			this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$description, this.$href );
+			this.$loading = $( '<div class="og-loading"></div>' );
 			this.$fullimage = $( '<div class="og-fullimg"></div>' ).append( this.$loading );
-            
-			this.$closePreview = $( '<div class="fa fa-times fa-2x og-close"></div>' );
-//			this.$closePreview = $( '<span class="og-close"></span>' );
+			this.$closePreview = $( '<span class="og-close"></span>' );
 			this.$previewInner = $( '<div class="og-expander-inner"></div>' ).append( this.$closePreview, this.$fullimage, this.$details );
 			this.$previewEl = $( '<div class="og-expander"></div>' ).append( this.$previewInner );
 			// append preview element to the item
@@ -414,12 +360,8 @@ document.querySelector('.gonext').onclick = function(e) {
 				this.setTransition();
 			}
 		},
-        
-        
 		update : function( $item ) {
 
-            this.$loading.show();
-            
 			if( $item ) {
 				this.$item = $item;
 			}
@@ -437,13 +379,11 @@ document.querySelector('.gonext').onclick = function(e) {
 			current = this.$item.index();
 
 			// update preview´s content
-			var $itemEl = this.$item.children( '.ch-item' ),
+			var $itemEl = this.$item.children( 'a' ),
 				eldata = {
-					href : $itemEl.data( 'link' ),
-					trailer : $itemEl.data( 'trailer' ),
-					largesrc : $itemEl.attr( 'src' ),
-					title : $itemEl.data( 'name' ),
-					projectname : $itemEl.data( 'name' ),
+					href : $itemEl.attr( 'href' ),
+					largesrc : $itemEl.data( 'largesrc' ),
+					title : $itemEl.data( 'title' ),
 					description : $itemEl.data( 'description' )
 				};
 
@@ -457,141 +397,22 @@ document.querySelector('.gonext').onclick = function(e) {
 			if( typeof self.$largeImg != 'undefined' ) {
 				self.$largeImg.remove();
 			}
-            
-            //setup classes for detail
-            
-            //var fontClass = $itemEl.parent().find('a > img').attr('class');
-            //self.$details.addClass(fontClass);
-            if ($itemEl.hasClass('vd')){
-                self.$details.addClass('vd');
-            }
-            if ($itemEl.hasClass('gd')){
-                self.$details.addClass('gd');
-            }
-            if ($itemEl.hasClass('gp')){
-                self.$details.addClass('gp');
-            }
-
-            //setup trailer link
-            
-            var projectName = $itemEl.parent().parent().parent().parent().find('> a').attr("data-name");
-
-            if (typeof eldata.trailer !== 'undefined'){                    
-                self.$trailer.find('.trailer').attr('src', eldata.trailer);
-                self.$trailer.find('button').text(eldata.projectname + ' trailer');
-                self.$trailer.show();
-            } else {
-                self.$trailer.hide();
-            }
-
-            //setup webpage link
-
-            if (typeof eldata.href !== 'undefined'){
-                self.$href.attr('href', eldata.href);
-                self.$href.text("Visit " + eldata.projectname);
-                self.$href.show();
-            } else {
-                self.$href.hide();
-            }            
-
-            if (typeof eldata.trailer == 'undefined' && typeof eldata.href == 'undefined'){
-                this.$previewEl.css( 'height', 500 );
-            }
-            
-            this.createStack($itemEl);
 
 			// preload large image and add it to the preview
 			// for smaller screens we don´t display the large image (the media query will hide the fullimage wrapper)
-			//if( self.$fullimage.is( ':visible' ) ) {
-                
-                
-                
-                
-                /*
+			if( self.$fullimage.is( ':visible' ) ) {
+				this.$loading.show();
 				$( '<img/>' ).load( function() {
 					var $img = $( this );
-					if( $img.attr( 'src' ) === self.$item.children('.ch-item').attr( 'src' ) ) {
+					if( $img.attr( 'src' ) === self.$item.children('a').data( 'largesrc' ) ) {
 						self.$loading.hide();
 						self.$fullimage.find( 'img' ).remove();
 						self.$largeImg = $img.fadeIn( 350 );
 						self.$fullimage.append( self.$largeImg );
 					}
+				} ).attr( 'src', eldata.largesrc );	
+			}
 
-				} ).attr( 'src', eldata.largesrc );
-                
-                */
-                
-                 
-                
-			//}
-
-		},
-		createStack : function( $itemEl ) {
-               /*** fill in stack images ***/
-            
-            /*
-            var $li = $itemEl.parent();
-            
-            if ($li 
-            */
-
-            var currentStack = this.$previewInner.find('.stack');
-            
-            
-            if (typeof currentStack.find('img').get(0) == 'undefined'){
-                // initial creation clone from blueprint
-                currentStack = $imgStack.clone(false, false);
-            }
-            
-            var lastInd = $itemEl.attr('src').lastIndexOf("/") + 1;
-            var imgFile = $itemEl.attr('src').substring(lastInd);
-            var imgFile = imgFile.substring(0, imgFile.length - 4);
-
-            var path = $itemEl.attr('src').substring(0, $itemEl.attr('src').lastIndexOf("/") + 1);
-            var filePrefix = imgFile.substring(0, imgFile.indexOf("_"));
-            var fileSize = "600";
-
-
-            currentStack = this.replaceImgs(currentStack, path, filePrefix, fileSize);
-
-
-            if (typeof currentStack.get(0) !== 'undefined'){
-                
-                var scritpAlreadyAdded = this.$previewInner.find('script');
-                if (typeof scritpAlreadyAdded !== 'undefined'){
-                    $(scritpAlreadyAdded).remove();
-                }
-
-
-                // replacing stack
-                if (typeof this.$fullimage !== 'undefined'){
-                    this.$fullimage.remove();
-//                } else {
-                }
-                
-                
-                if (typeof this.$previewInner.find('.stack').get(0) !== 'undefined'){
-                    this.$previewInner.find('.stack').replaceWith(currentStack);
-                }else{
-                    this.$previewInner.prepend(currentStack);
-                }
-
-                //readded simplestack.js to rerun it
-                this.$previewInner.append('<script src="js/simplestack.js"></script>');            
-            }
-
-
-		},
-		replaceImgs : function( currentStack, path, filePrefix, fileSize) {
-
-            var stackImgPath = path + filePrefix + "_" + fileSize;
-            
-            $(currentStack).find('img').each(function (index, element){
-
-               $(element).attr('src', stackImgPath + "_" + index + ".png" );
-            });
-            
-            return currentStack;
 		},
 		open : function() {
 
@@ -694,11 +515,3 @@ document.querySelector('.gonext').onclick = function(e) {
 	};
 
 })();
-
-
-function getHTMLButton(videolink, websitelink){
-    
-    if (videolink !== 'undefined'){
-        
-    }
-}

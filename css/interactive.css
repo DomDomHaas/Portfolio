@@ -125,9 +125,17 @@
 }
 
 .menu-button {    
+    border-radius: 50%;
+/* first style solid circle
   background: none repeat scroll 0 0 #EBFBFC;
-  border-radius: 50%;
+*/
   /* color: #444; */
+    
+    /* second style with gradient */
+    background: none;
+  -webkit-box-shadow: 0px 0px 30px 1px #999e9e;
+          box-shadow: 0px 0px 30px 1px #999e9e;
+    
 }
 
 .menu-button:hover {
