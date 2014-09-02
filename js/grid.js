@@ -389,15 +389,22 @@ document.querySelector('.gonext').onclick = function(e) {
             this.$trailer = $('<div class="morph-button morph-button-modal morph-button-modal-4 morph-button-fixed"> ' +
                                     '<button type="button">Watch the Trailer</button> ' +
                                     '<div class="morph-content"> ' +
-                                        '<div> <div class="content-style-video">' +
+//                                        '<div>'+ 
+                                        '<div class="trailer_wrapper">' +
                                             '<span class="icon icon-close">Close the dialog</span>' +
-                                            '<iframe class="trailer" width="640" height="360" src="" frameborder="0" allowfullscreen="true"></iframe>' +
-                                        '</div>' +
+                                            '<iframe class="trailer" width="640" height="360" src="" frameborder="0" allowfullscreen></iframe>' +
+//                                        '</div>' +
                                         '</div>' +
                                     '</div>' +
                                 '</div>' +
                                 '<script src="js/simplebutton.js"></script>');
 			this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$description, this.$trailer, this.$href );
+/*
+        <section id="trailer" class="trailer_wrapper">
+            <iframe title="YouTube video player" class="youtube-player" type="text/html" width="640" height="360"
+            src="http://www.youtube.com/embed/4H1uiBKUC0o?rel=0" frameborder="1" allowfullscreen></iframe>
+        </section>
+            */
             
             // left side img
 			this.$loading = $( '<div class="fa fa-circle-o-notch fa-spin"></div>' );            
