@@ -595,7 +595,7 @@ document.querySelector('.gonext').onclick = function(e) {
             
             $(currentStack).find('img').each(function (index, element){
 
-               $(element).attr('src', stackImgPath + "_" + index + ".png" );
+               $(element).attr('src', stackImgPath + "_" + index + ".jpg" );
             });
             
             return currentStack;

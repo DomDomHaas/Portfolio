@@ -254,6 +254,7 @@
 	-webkit-transition: all 0.3s;
 	transition: all 0.3s;
 	outline: 1px solid transparent;
+    border-radius: 1%;
 }
 
 .stack img:last-child {

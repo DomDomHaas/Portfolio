@@ -98,19 +98,19 @@ a {
 }
 
 .main > .og-grid li .ch-item.vd{
-    /* circle */
-    border-radius: 50%;
+    /* smooth rect  */
+    border-radius: 25%;
 }
 
 
 .main > .og-grid li .ch-item.gd{
-    /* smooth rectangle */
-    border-radius: 50px;
+    /* circle */
+    border-radius: 50%;
 }
 
 .main > .og-grid li .ch-item.gp{
-    /* ensure rectangle */
-    border-radius: 0px;
+    /* rectangle */
+    border-radius: 1%;
 }
     
 .header {
