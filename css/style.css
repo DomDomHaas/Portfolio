@@ -34,6 +34,7 @@ html { height: 100%; }
 body h1 {
     /* overwrite the normalizer.css */
 	margin: 0;
+    line-height: 1;
 }
 
 body {
@@ -130,10 +131,14 @@ a {
     cursor: pointer;
 }
 
+.gonext:first-child{
+    margin-top: 2.5%;
+}
+
 
 .footer {
     text-align: center;
-    margin: 25% auto 0;
+    margin: 10% auto 0;
     /*
     margin: 200px auto 0;
     box-shadow: 0 -10px 10px -15px;
@@ -194,12 +199,11 @@ a {
 
 .about > p {
     margin: 25px auto;
-    font-weight: 700;
     color: #00dffc;
 }
 
 .logo {
-    padding: 80px 0 50px;
+    padding: 1% 0;
     text-align: center;
     background-color: #111;
     background-image: url("../images/texture/dots-300x300-fine_transparent.png");
@@ -380,8 +384,8 @@ body p{
     }
 
     .main > .og-grid li .ch-item {
-        max-width: 200px;
-        max-height: 200px;
+        max-width: 250px;
+        max-height: 250px;
     }
     
     
@@ -524,7 +528,22 @@ body p{
 
 @media screen and (min-width: 320px) and (max-width: 480px) {
     
+    .og-details a, .morph-button-fixed, .morph-button-fixed .morph-content{
+        margin: 10% auto 0;
+    }
     
+    .morph-button-modal-4, .morph-button-modal-4 .morph-content{
+        height: 35px;
+    }
+    
+    .morph-button-modal-4 > button{
+        line-height: 30px;        
+    }
+    
+    .og-details a{
+        height: 35px;
+        line-height: 30px;
+    }
 }
 
 @media screen and (min-width: 320px) and (max-width: 400px) {

@@ -392,12 +392,15 @@ document.querySelector('.gonext').onclick = function(e) {
 //                                        '<div>'+ 
                                         '<div class="trailer_wrapper">' +
                                             '<span class="icon icon-close">Close the dialog</span>' +
+//                                                '<script>$(".icon.icon-close").click(function(){ $(".trailer").each(function(){ ' +
+//                                                    ' $(this).stopVideo(); }); }); ' +
+//                                                '</script> ' +                              
                                             '<iframe class="trailer" width="640" height="360" src="" frameborder="0" allowfullscreen></iframe>' +
 //                                        '</div>' +
                                         '</div>' +
                                     '</div>' +
                                 '</div>' +
-                                '<script src="js/simplebutton.js"></script>');
+                                '<script>$(".morph-button").click(function(){$(this).toggleClass("active open")});</script>');
 			this.$details = $( '<div class="og-details"></div>' ).append( this.$title, this.$description, this.$trailer, this.$href );
 /*
         <section id="trailer" class="trailer_wrapper">
@@ -447,6 +450,7 @@ document.querySelector('.gonext').onclick = function(e) {
 			var $itemEl = this.$item.children( '.ch-item' ),
 				eldata = {
 					href : $itemEl.data( 'link' ),
+					dhref : $itemEl.data( 'dlink' ),
 					trailer : $itemEl.data( 'trailer' ),
 					largesrc : $itemEl.attr( 'src' ),
 					title : $itemEl.data( 'name' ),
@@ -483,7 +487,7 @@ document.querySelector('.gonext').onclick = function(e) {
             
             var projectName = $itemEl.parent().parent().parent().parent().find('> a').attr("data-name");
 
-            if (typeof eldata.trailer !== 'undefined'){                    
+            if (typeof eldata.trailer != 'undefined'){                    
                 self.$trailer.find('.trailer').attr('src', eldata.trailer);
                 self.$trailer.find('button').text(eldata.projectname + ' trailer');
                 self.$trailer.show();
@@ -492,18 +496,35 @@ document.querySelector('.gonext').onclick = function(e) {
             }
 
             //setup webpage link
-
-            if (typeof eldata.href !== 'undefined'){
+//alert('eldata.href : ' +  typeof eldata.href);
+            
+            if (typeof eldata.href != 'undefined'){
                 self.$href.attr('href', eldata.href);
                 self.$href.text("Visit " + eldata.projectname);
                 self.$href.show();
             } else {
-                self.$href.hide();
+                
+                //alert('eldata.dhref : ' +  typeof eldata.dhref);
+
+                if (typeof eldata.dhref != 'undefined'){
+                    self.$href.attr('href', eldata.dhref);
+                    self.$href.text("Get " + eldata.projectname);
+                    self.$href.show();
+                } else {
+                    self.$href.hide();
+                }            
             }            
 
+            
+            /*
             if (typeof eldata.trailer == 'undefined' && typeof eldata.href == 'undefined'){
-                this.$previewEl.css( 'height', 500 );
+                //this.$previewEl.css( 'height', this.height );
+                
+                this.$previewEl.css( 'height', settings.minHeight );
+                
+                //this.$previewEl.css( 'height', 500 );
             }
+            */
             
             this.createStack($itemEl);
 
@@ -584,7 +605,13 @@ document.querySelector('.gonext').onclick = function(e) {
                 }
 
                 //readded simplestack.js to rerun it
-                this.$previewInner.append('<script src="js/simplestack.js"></script>');            
+                this.$previewInner.append('<script src="js/simplestack.js"> ' +
+                                          '$(".stack").hover(' +
+                                                'function(){ $(this).addClass("active") },' +
+                                                    'function(){ $(this).removeClass("active") }' +
+                                                ')' +
+                                                '$(".stack").click(function(){$(this).toggleClass("active")});' + 
+                                            '</script>');
             }
 
 
@@ -667,7 +694,7 @@ document.querySelector('.gonext').onclick = function(e) {
 			this.calcHeight();
 			this.$previewEl.css( 'height', this.height );
 			this.$item.css( 'height', this.itemHeight ).on( transEndEventName, onEndFn );
-
+            
 			if( !support ) {
 				onEndFn.call();
 			}

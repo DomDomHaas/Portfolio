@@ -133,27 +133,13 @@
     
     /* second style with gradient */
     background: none;
-  -webkit-box-shadow: 0px 0px 30px 1px #999e9e;
-          box-shadow: 0px 0px 30px 1px #999e9e;
+  -webkit-box-shadow: 0px 0px 75px 5px #999e9e;
+          box-shadow: 0px 0px 75px 5px #999e9e;
     
 }
 
 .menu-button:hover {
   background-color: #eef;
-}
-
-
-@media screen and (min-width: 320px) and (max-width: 480px) {
-    
-    .circle {
-        width: 225px;
-        height: 225px;
-    }
-    
-    .circular-menu {
-        width: 225px;
-        height: 225px;
-    }
 }
 
 
@@ -220,7 +206,7 @@
 	color: #fff;
 	text-transform: uppercase;
 	position: relative;
-	letter-spacing: 2px;
+	/* letter-spacing: 2px; don't use because of the long Titles */
 	font-size: 25px;
 	margin: 0 30px;
 	padding: 65px 0 0 0;
@@ -514,4 +500,22 @@
 }
 
 
+/************** Media Queries **************/
 
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    
+    .circle {
+        width: 225px;
+        height: 225px;
+    }
+    
+    .circular-menu {
+        width: 225px;
+        height: 225px;
+    }
+    
+    .ch-info h3 {
+        font-size: 20px;
+        line-height: 1;
+    }
+}
