@@ -168,7 +168,7 @@ a {
 
 .header.gp, .og-details.gp h3{
     font-family: 'Iceland';
-    font-weight: 100;    
+    /* font-weight: 100;    */
 }
 
 .header.gp p {
@@ -347,7 +347,7 @@ body p{
 
 /**** title and background ****/
 
-@media screen and (min-width: 320px) and (max-width: 640px) {
+@media screen and (min-width: 320px) and (max-width: 639px) {
 
     .logo{
         padding: 0;
@@ -368,7 +368,7 @@ body p{
     }
     
     .about > p {
-        margin: 12% auto;    
+        margin: 12% -5%;
     }
     
     .main > .og-grid li.gonext{
@@ -409,6 +409,30 @@ body p{
         width: 300px;
     }
     
+    .slider{
+        float: none;
+        margin: 0 auto;
+        height: 300px;
+        width: 300px;
+    }
+
+    /*
+    .slider nav span{
+        width: 75px;
+        height: 75px;
+        margin-top: -50px;
+        line-height: 40px;    
+    }
+    */
+
+    .slider nav span {
+        width: 50px;
+        height: 50px;
+        bottom: 2%;
+        line-height: 40px;        
+    }
+    
+    
     .og-details{
         padding: 0;
     }
@@ -425,16 +449,14 @@ body p{
     }    
     
     
-    
-    
     .morph-button-modal-4, .morph-button-modal-4 .morph-content{
         height: 60px;
     }
     
     .og-details a,
     .morph-button-fixed, .morph-button-fixed .morph-content{
-        margin: 15% auto 0;
-        width: 250px;
+        margin: 10% 10% 0 10%;
+        width: 80%;
         padding: 0;
     }
     
@@ -452,17 +474,14 @@ body p{
     
     .footer{
         margin: 35% auto 0;
+        padding: 0 0 2% 0;
     }
     
 }
 
-@media screen and (min-width: 320px) and (max-width: 640px) and (orientation:landscapey) {
-    
-    .stack{
-    }
-}
 
-@media screen and (min-width: 640px) and (max-width: 830px){
+
+@media screen and (min-width: 639px) and (max-width: 830px){
     
     .stack{
         float: none;
@@ -472,8 +491,34 @@ body p{
     
     .og-details {
         float: none;
-        padding: 0 5%;
-        width: 100%;
+        /*padding: 0 5%;*/
+        max-width: 50%;
+    }
+    
+    .slider nav span {
+        width: 50px;
+        height: 50px;
+        bottom: 2%;
+        line-height: 40px;
+        border: 1px solid;
+        font-weight: normal;
+    }
+    
+}
+
+/* Horizontal Link-Buttons */
+@media screen and (min-width: 640px) {
+
+    .og-details a, .morph-button-fixed, .morph-button-fixed .morph-content{
+	   margin: 15% 15% 0 15%;
+       width: 75%;
+    }
+}
+
+@media screen and (max-width: 1380px){
+    
+    .slider nav span.next {
+        right: 1%;
     }
     
 }
@@ -508,10 +553,17 @@ body p{
         top: 0% !important;
     }    
     */
+
+
+    
+    .slider nav span.next {
+        right: 1%;
+    }
     
 }
 
 @media screen and (min-width: 768px) and (max-width: 1262px) {
+    
     
 
 }
@@ -522,6 +574,7 @@ body p{
     .og-grid li.gonext {
         margin: 10% 45%;
     }
+    
 }
 
 /**** mobile breaks title and background ****/
@@ -529,21 +582,9 @@ body p{
 @media screen and (min-width: 320px) and (max-width: 480px) {
     
     .og-details a, .morph-button-fixed, .morph-button-fixed .morph-content{
-        margin: 10% auto 0;
+        margin: 10% 10% 0 10%;
     }
     
-    .morph-button-modal-4, .morph-button-modal-4 .morph-content{
-        height: 35px;
-    }
-    
-    .morph-button-modal-4 > button{
-        line-height: 30px;        
-    }
-    
-    .og-details a{
-        height: 35px;
-        line-height: 30px;
-    }
 }
 
 @media screen and (min-width: 320px) and (max-width: 400px) {
@@ -583,15 +624,21 @@ body p{
 
 @media screen and (min-width: 980px) and (max-width: 1024px) {
 
-
+    .slider nav span {
+        bottom: 5%;
+    }
     
 }
 
 
-@media screen and (min-width: 640px) and (max-width: 720px) {
+@media screen and (min-width: 640px) {
     
-
-    
+    /*
+    .og-details a, .morph-button-fixed, .morph-button-fixed .morph-content{
+	   margin: 5% 25% 0 25%;
+       width: 50%;
+    }
+    */
 }
 
 @media screen and (min-width: 721px) and (max-width: 768px) {
@@ -603,7 +650,23 @@ body p{
 
 @media screen and (min-width: 320px) and (max-width: 768px){
 
-
+    
+    .ch-info h3{
+        font-size: 21px;
+    }
+    
+    .morph-button-modal-4, .morph-button-modal-4 .morph-content{
+        height: 35px;
+    }
+    
+    .morph-button-modal-4 > button{
+        line-height: 30px;        
+    }
+    
+    .og-details a{
+        height: 35px;
+        line-height: 30px;
+    }
     
 }
 
@@ -621,60 +684,4 @@ body p{
     
 }
 
-    
-}
-
-@media screen and (min-width: 320px) and (max-width: 480px) and (orientation:portrait){
-
-
-    
-}
-
-@media screen and (min-width: 360px) and (max-width: 640px) and (orientation:portrait){
-
-
-}
-
-@media screen and (min-width: 768px) and (max-width: 800px) and (orientation:portrait){
-
-    
-}
-
-@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation:portrait){
-
-
-    
-}
-
-@media screen and (min-width: 1024px) {
-    
-
-}
-
-
-/**** pic sizes and paddings ****/
-
-@media screen and (min-width: 320px) and (max-width: 480px) {
-    
-
-}
-
-@media screen and (min-width: 480px) and (max-width: 640px) {
-    
-
-}
-
-@media screen and (min-width: 640px) {
-
-
-}
-
-
-/**** different footer for mobile devices ****/
-
-@media screen and (min-width: 320px) and (max-width: 767px) {
-
-
-
-}
 

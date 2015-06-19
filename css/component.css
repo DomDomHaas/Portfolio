@@ -30,15 +30,15 @@
 }
 */
 
-.og-grid li.og-expanded .ch-item::after {
-	top: auto;
+.og-grid li.og-expanded .item::after {
+	top: 100%;
 	border: solid transparent;
 	content: " ";
 	height: 0;
 	width: 0;
 	position: absolute;
 	pointer-events: none;
-	border-bottom-color: #ddd;
+	border-bottom-color: #00dffc;
 	border-width: 15px;
 	left: 50%;
 	margin: -20px 0 0 -15px;
@@ -46,7 +46,7 @@
 
 .og-expander {
 	position: absolute;
-	background: #ddd;
+	/* background: #ddd; */
 	top: auto;
 	left: 0;
 	width: 100%;
@@ -117,7 +117,7 @@
 }
 
 .og-details {    
-	padding: 0 2% 0 10%;
+	padding: 0 2% 0 8%;
 }
 
 .og-fullimg {
@@ -133,14 +133,14 @@
 .og-details h3 {
 	/* font-weight: 300; */
 	font-size: 52px;
-	padding: 3% 0 6% 0;
-	margin-bottom: 10px;
+	padding: 0;
+	margin: 5% 0;
     line-height: 1.1;
 }
 
 .og-details p {
 	font-weight: 400;
-	font-size: 20px;
+	font-size: 18px;
 	line-height: 1.5;
 	color: #999;
 }
@@ -151,12 +151,12 @@
 	color: #333;
 	text-transform: uppercase;
 	letter-spacing: 2px;
-	padding: 0px 20px; 
+	padding: 0; 
 	border: 3px solid #333;
 	display: inline-block;
-	margin: 75px 30px 0 0;
+	margin: 75px 25% 0 25%;
 	outline: none;
-    width: 250px;    
+    width: 50%;    
     height: 55px;
     line-height: 3.2;
     text-align: center;
@@ -209,13 +209,44 @@
 	66% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc; }
 }
 
+@media screen and (max-width: 1024px) {
+
+	.og-details h3 {
+       font-size: 40px;
+    }
+    
+}
+
 @media screen and (max-width: 830px) {
 
-	.og-expander h3 { font-size: 20px; }
-	.og-expander p { font-size: 15px; }
-    
-	/*.og-expander a { font-size: 12px; } */
+	.og-details p {
+        font-size: 15px;
+    }
 
+}
+
+@media screen and (min-width: 640px) {
+
+	.og-details h3 {
+        margin: 3% 0 5% 0;
+    }
+}
+
+@media screen and (min-width: 830px) {
+    
+    .og-details p {
+        font-size: 25px;
+    }
+    
+}
+
+
+@media screen and (max-width: 639px) {
+
+	.og-details h3 {
+       font-size: 20px;
+    }
+        
 }
 
 @media screen and (max-width: 650px) {
@@ -234,11 +265,11 @@
 
 .stack {
     float: left;
-	margin: 2% auto 2% 4%;
-	width: 600px;
+	margin: 2% auto 2% 5%;
+	width: 45%;
 	padding: 0;
 	position: relative;
-	max-width: 100%;
+	max-width: 600px;
 }
 
 .stack figure {
@@ -342,9 +373,9 @@
 /* Common styles for overlay and modal type (fixed morph) */
 .morph-button-fixed,
 .morph-button-fixed .morph-content {
-	width: 250px;
+	width: 50%;
     height: 55px;
-	margin: 75px 10% 0 0;
+	margin: 75px 25% 0 25%;
     border: 3px solid #333;
 }
 

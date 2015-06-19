@@ -12,6 +12,7 @@
 		<link rel="shortcut icon" href="images/icons/fav_icon_logo.png" /> 
 		<link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="css/colors.min.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/slider_component.css" />        
 		<link rel="stylesheet" type="text/css" media="screen" href="css/component.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="css/interactive.css" />
@@ -42,7 +43,15 @@
                     <img src="" />
                     <img src="" />
                     <img src="" />
-                </figure>            
+                </figure>
+            </article>
+            <article id="slider" class="slider">
+				<ul>
+					<li><img src="" alt="img01"/></li>
+					<li><img src="" alt="img02"/></li>
+					<li><img src="" alt="img03"/></li>
+					<li><img src="" alt="img04"/></li>
+				</ul>
             </article>
         </div>
         
@@ -77,9 +86,8 @@
                 </div>
                 <div local="#about" class="gonext fa fa-2x fa-arrow-circle-down floating"></div>
                 <div id="about" class="about">
-                    <p>Thank you for visiting my portfolio,<br/>here you can get to know<br/>some of my work.</p>
-                    <p>I like playing games<br/>and I am passionate about<br/>creating them.</p>
-                    <p>That is why after several years<br/>working in software development<br/>I started studying Game Design.</p>
+                    <p>Thank you for visiting my portfolio<br/>I like playing games and<br/>I am passionate about<br/>creating them.</p>
+                    <p>I studied<br/>Game Design and<br/>graduated in summer 2015<br/>at the Zurich University of the Arts.</p>
                 </div>
             </section>
             
@@ -93,34 +101,34 @@
                     </li>
                     
 					<li>
-                        <div class="ch-item gd" data-name="Schlicht"
+                        <div class="item gd" data-name="Schlicht"
                              src="images/schlicht/schlicht_title_300.jpg" data-trailer="https://www.youtube.com/embed/Fo8ww93saTI?enablejsapi=1" data-link="http://www.schlichtgame.ch" 
-                               data-description="Schlicht is an atmospheric cooperative puzzle game for the PC. Two players take control of a shadow and a light sphere on their journey across many colorful levels and                                                      different challenges.<br/>
+                               data-description="Schlicht is an atmospheric cooperative puzzle game for the PC.
+                                                 Two players take control of a shadow and a light sphere on their journey across many colorful levels and different challenges.
                                                  In December 2014 Schlicht won the '<b>Newcomer Award</b>' given by Ubisoft Bluebyte Studio."
                                 style="background-image: url('images/schlicht/schlicht_title_300.jpg')" >
-                            <div class="ch-info"><h3>Schlicht</h3><p>Atmospheric Puzzlegame</p></div>
+                            <div class="info"><h3>Schlicht</h3><p>Atmospheric Puzzlegame</p></div>
                         </div>
 					</li>
 					<li>
-                        <div class="ch-item gd" src="images/hexaplex/hexaplex_title_300.jpg" data-title="Azuki bean"
-                           data-name="Hexaplex"
+                        <div class="item gd" src="images/hexaplex/hexaplex_title_300.jpg" data-name="Hexaplex"
                                data-description="Hexaplex is a strategical boardgame about capturing hexagons to earn points. The players
                                                 have to place their stones in order to use the corresponding pattern card. Always keep an eye
                                                 on the opponents, because once a player lays down the last card of their hand all players
                                                 have to discard their cards. Their plans are crossed and they have to find a new strategy in
                                                 the next turn."
                                 style="background-image: url('images/hexaplex/hexaplex_title_300.jpg')" >
-                            <div class="ch-info"><h3>Hexaplex</h3><p>Wooden Strategy Boardgame</p></div>
+                            <div class="info"><h3>Hexaplex</h3><p>Wooden Strategy Boardgame</p></div>
                         </div>
 					</li>
 					<li>
-                        <div class="ch-item gd" data-name="Merge"
-                             src="images/merge/Merge_title_300.jpg" data-trailer="http://player.vimeo.com/video/99513752"                           
-                               data-description="Merge is an atmospheric Sidescrolling Action Adventure.
+                        <div class="item gd" data-name="Merge"
+                             src="images/merge/Merge_title_300.jpg" data-trailer="http://player.vimeo.com/video/99513752" data-link="http://www.indiedb.com/games/merge" 
+                               data-description="Merge is a atmospheric Sidescrolling Action Adventure.
                                                  The player guides a tiny being of the forest on its quest to find its stolen light.
                                                  There are various dangers on the way and it encounters an enormous blob which is attracted by the small character's light. Is it a friend or foe?"
                                 style="background-image: url('images/merge/Merge_title_300.jpg')" >
-                            <div class="ch-info"><h3>Merge</h3><p>Action-Adventure Game</p></div>
+                            <div class="info"><h3>Merge</h3><p>Action-Adventure Game</p></div>
                         </div>
 					</li>
                     <li local="#gameprogramming" class="gonext fa fa-2x fa-arrow-circle-down floating"></li>
@@ -130,33 +138,33 @@
                     </li>
                     
 					<li>
-                        <div class="ch-item gp" data-name="Game Analysis"
+                        <div class="item gp" data-name="Game Analysis"
                              src="images/BBT/BBT_title_300.jpg" data-dlink="http://bit.ly/17LRfQK"
                                data-description="In the Game Analysis isn't programming involved, but analysing a software and shape out the structure of it is often used in software development.
                                                  So this is a close up analysis of the BattleBlockTheater. The main goals was to look behind the curtains of a game to work out principles of game design. "
                                 style="background-image: url('images/BBT/BBT_title_300.jpg')" >
-                            <div class="ch-info"><h3>Game Analysis</h3><p>Analysis of BattleBlockTheather</p></div>
+                            <div class="info"><h3>Game Analysis</h3><p>Analysis of BattleBlockTheather</p></div>
                         </div>
 					</li>
 					<li>
-                        <div class="ch-item gp" data-name="JSON Persistency"
-                             src="images/json_persist/JSONPersist_300_title.jpg" 
+                        <div class="item gp" data-name="JSON Persistency"
+                             src="images/json_persist/JSONPersist_300_title.jpg" data-link="https://github.com/DomDomHaas/JSONPersistency"
                                data-description="Originally I made the plugin for a sound plugin to be able to save states during the 'Play Mode' of Unity.<br><br>
                                                  It is a simple plugin for Unity which stores states of GameObjects in separate files and keeps GameObject and files persistent.
-                                                 It can be used for savegame functionality or for Editor extensions. It is in fact part of the Color Palette plugin."
+                                                 It can be used for savegame functionality or for Editor extensions. It is Open Source on Github."
                                 style="background-image: url('images/json_persist/JSONPersist_300_title.jpg')" >
-                            <div class="ch-info"><h3>JSON Persistency</h3><p>Unity Plugin for saving GameObjects</p></div>
+                            <div class="info"><h3>JSON Persistency</h3><p>Unity Plugin for saving GameObjects</p></div>
                         </div>
 					</li>
 					<li>
-                        <div class="ch-item gp" data-name="Color Palettes"
-                             src="images/colorpalettes/colorpalettes_title.jpg" 
+                        <div class="item gp" data-name="Color Palettes"
+                             src="images/colorpalettes/colorpalettes_title.jpg" data-dlink="http://u3d.as/bFr"
                                data-description="I like to create Unity Editor extentions which help during the daily game design work.<br><br>
-                                                 Color palettes gives you the possibility to setup color schemes for your games.
+                                                 Color Palettes gives you the possibility to setup color schemes for your games.
                                                  It can be used for SpriteRenderer and Material tinting, color transitions, customisation of characters, vertex coloring or
                                                  simply applying color to any component which has a color."
                                 style="background-image: url('images/colorpalettes/colorpalettes_title.jpg')" >
-                            <div class="ch-info"><h3>Color Palettes</h3><p>Plugin for Unity</p></div>
+                            <div class="info"><h3>Color Palettes</h3><p>Plugin for Unity</p></div>
                         </div>
 					</li>
                     
@@ -166,30 +174,30 @@
                         <p>Visual Design</p>
                     </li>
 					<li>
-                        <div class="ch-item vd" data-name="Character Design: Lara"
+                        <div class="item vd" data-name="Character Design: Lara"
                              src="images/lara/lara_title_300.jpg"
                                data-description="Besides my interest in game design & development my like to draw sometimes. I have done the character design of Lara during leisure time.
                                                  It was connected with a client work."
                                 style="background-image: url('images/lara/lara_title_300.jpg')" >
-                            <div class="ch-info"><h3>Lara</h3><p>Character Design</p></div>
+                            <div class="info"><h3>Lara</h3><p>Character Design</p></div>
                         </div>
 					</li>
 					<li>
-                        <div class="ch-item vd" data-name="Character Design: Extraction"
+                        <div class="item vd" data-name="Character Design: Extraction"
                              src="images/extraction/extraction_title_300.jpg"
-                               data-description="The extraction was done during a side course in the second semester of my game design studies."
+                               data-description="The 'extraction' drawing was done during a side course in the second semester of my game design studies."
                                 style="background-image: url('images/extraction/extraction_title_300.jpg')" >
-                            <div class="ch-info"><h3>Extraction</h3><p>Character Design</p></div>
+                            <div class="info"><h3>Extraction</h3><p>Character Design</p></div>
                         </div>
 					</li>
 					<li>
-                        <div class="ch-item vd" data-name="Rewrap"
+                        <div class="item vd" data-name="Rewrap"
                              src="images/rewrap/rewrap_title_300.jpg" data-trailer="https://www.youtube.com/embed/w2_-BLjH-ZQ" data-trailerdesc=""
                                data-description="The Rewarp of Prince of Persia was done during coursework in the third semester of the game design studies at the Zurich University of the Arts.
                                                  One has to choose a game as reference and create a room for it.
                                                  Which means rebuilding 3D modles, textures, the atmosphere and define three points where emotions are provoked by the effect the room has on the viewer."
                                 style="background-image: url('images/rewrap/rewrap_title_300.jpg')" >
-                            <div class="ch-info"><h3>Rewrap</h3><p>3D Animation</p></div>
+                            <div class="info"><h3>Rewrap</h3><p>3D Animation</p></div>
                         </div>
 					</li>
                     
@@ -198,14 +206,14 @@
                     <li id="fotoabout" class="clearfix header gd"></li>
                     
 					<li>
-                        <div class="ch-item gd" data-name="Dominik Haas"
+                        <div class="item gd" data-name="Dominik Haas"
                              src="images/me/me_300_title.jpg"
                                data-description="Besides studying an intense education in game design many things happened in 2014.<br/>
                                                  In Mai the team behind the game Schlicht was awarded with the '<b>Junior Highlight</b>' at the Eyes & Ears Conference in Cologne.<br/>
-                                                 In November the games Merge and Schlicht were on display at the Swissnex in Bangalore, India.<br/>
+                                                 In November the games <b>Merge and Schlicht</b> have been on display at the Swissnex in Bangalore, India.<br/>
                                                  And in December Schlicht won the '<b>Newcomer Award</b>' given by Ubisoft Bluebyte at the germans developer price in Cologne."
                                 style="background-image: url('images/me/me_300_title.jpg')" >
-                            <div class="ch-info"><h3>Dominik</h3><p>Passionated Game Designer</p></div>
+                            <div class="info"><h3>Dominik</h3><p>Passionated Game Designer</p></div>
                         </div>
 					</li>
                     
@@ -223,11 +231,6 @@
             
             
 		</div>
-        <!-- links:
-            BBT-Analyse: http://bit.ly/17LRfQK
-            Inklewriter: http://bit.ly/Zt8Ff4
-            Isosphere: http://bit.ly/1pULLci
-            /container -->
         
 		<script src="js/grid.js"></script>
 		<script>
@@ -236,6 +239,7 @@
 			});
 		</script>
 
+		<script src="js/slider.js"></script>
        
         
 	</body>

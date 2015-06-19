@@ -183,14 +183,18 @@ document.querySelector('.gonext').onclick = function(e) {
 		var $trailButton = $('.blueprints .morph-button'), 
 		$websiteButton = $('.blueprints .website-link'), 
   */          
-		var $imgStack = $('.blueprints .stack'), 
+		var $blueprintSlider = $('.blueprints .slider'), 
+    
+		$blueprintStack = $('.blueprints .stack'), 
             
-		// list of items
 		$grid = $( '#og-grid' ),
-		// the items
 		$items = $grid.children( 'li' ),
+            
+        isMobile = false,
+            
 		// current expanded item's index
-		current = -1,
+		currentItemIndex = -1,
+            
 		// position (top) of the expanded item
 		// used to know if the preview will expand in a different row
 		previewPos = -1,
@@ -213,10 +217,29 @@ document.querySelector('.gonext').onclick = function(e) {
 		support = Modernizr.csstransitions;
             
         var settings, minH = 700;
-    
+
         if ($window.width() < 768){
-		  // mobile is longer because everything is under each other
-            minH = 750;
+		  // "mobile" use the smaller pics
+            isMobile = true;
+        }
+    
+        // horizontal, big
+        if ($window.width() >= 830 && $window.width() < 1024){
+            minH = 600;
+        }
+
+        // horizontal, small
+        if ($window.width() >= 640 && $window.width() < 830){
+            minH = 450;
+        }
+    
+        // vertical, is longer because everything is under each other
+        if ($window.width() < 640){
+            if ($window.height() <= 360){
+                minH = 450;
+            } else {
+                minH = 750;
+            }
         }
     
         settings = {
@@ -225,13 +248,6 @@ document.querySelector('.gonext').onclick = function(e) {
             easing : 'ease'
         };
     
-    /*
-		settings = {
-			minHeight : 700,
-			speed : 350,
-			easing : 'ease'
-		};
-    */
 
 	function init( config ) {
 		
@@ -312,11 +328,11 @@ document.querySelector('.gonext').onclick = function(e) {
 		$items.on( 'click', '.og-close', function() {
 			hidePreview();
 			return false;
-		} ).children( '.ch-item' ).on( 'click', function(e) {
+		} ).children( '.item' ).on( 'click', function(e) {
 
 			var $item = $( this ).parent();
 			// check if item already opened
-			current === $item.index() ? hidePreview() : showPreview( $item );
+			currentItemIndex === $item.index() ? hidePreview() : showPreview( $item );
 			return false;
 
 		} );
@@ -339,7 +355,7 @@ document.querySelector('.gonext').onclick = function(e) {
 
 			// not in the same row
 			if( previewPos !== position ) {
-				// if position > previewPos then we need to take te current preview´s height in consideration when scrolling the window
+				// if position > previewPos use the current preview´s height
 				if( position > previewPos ) {
 					scrollExtra = preview.height;
 				}
@@ -363,7 +379,7 @@ document.querySelector('.gonext').onclick = function(e) {
 	}
 
 	function hidePreview() {
-		current = -1;
+		currentItemIndex = -1;
 		var preview = $.data( this, 'preview' );
 		preview.close();
 		$.removeData( this, 'preview' );
@@ -417,8 +433,10 @@ document.querySelector('.gonext').onclick = function(e) {
 //			this.$closePreview = $( '<span class="og-close"></span>' );
 			this.$previewInner = $( '<div class="og-expander-inner"></div>' ).append( this.$closePreview, this.$fullimage, this.$details );
 			this.$previewEl = $( '<div class="og-expander"></div>' ).append( this.$previewInner );
+            
 			// append preview element to the item
 			this.$item.append( this.getEl() );
+            
 			// set the transitions for the preview and the item
 			if( support ) {
 				this.setTransition();
@@ -434,20 +452,20 @@ document.querySelector('.gonext').onclick = function(e) {
 				this.$item = $item;
 			}
 			
-			// if already expanded remove class "og-expanded" from current item and add it to new item
-			if( current !== -1 ) {
-				var $currentItem = $items.eq( current );
+			// if already expanded remove class "og-expanded" from currentItemIndex item and add it to new item
+			if( currentItemIndex !== -1 ) {
+				var $currentItem = $items.eq( currentItemIndex );
 				$currentItem.removeClass( 'og-expanded' );
 				this.$item.addClass( 'og-expanded' );
 				// position the preview correctly
 				this.positionPreview();
 			}
 
-			// update current value
-			current = this.$item.index();
+			// update currentItemIndex value
+			currentItemIndex = this.$item.index();
 
 			// update preview´s content
-			var $itemEl = this.$item.children( '.ch-item' ),
+			var $itemEl = this.$item.children( '.item' ),
 				eldata = {
 					href : $itemEl.data( 'link' ),
 					dhref : $itemEl.data( 'dlink' ),
@@ -526,7 +544,9 @@ document.querySelector('.gonext').onclick = function(e) {
             }
             */
             
-            this.createStack($itemEl);
+            //this.createStack($itemEl);
+            
+            this.createSlider($itemEl);
 
 			// preload large image and add it to the preview
 			// for smaller screens we don´t display the large image (the media query will hide the fullimage wrapper)
@@ -538,7 +558,7 @@ document.querySelector('.gonext').onclick = function(e) {
                 /*
 				$( '<img/>' ).load( function() {
 					var $img = $( this );
-					if( $img.attr( 'src' ) === self.$item.children('.ch-item').attr( 'src' ) ) {
+					if( $img.attr( 'src' ) === self.$item.children('.item').attr( 'src' ) ) {
 						self.$loading.hide();
 						self.$fullimage.find( 'img' ).remove();
 						self.$largeImg = $img.fadeIn( 350 );
@@ -554,21 +574,72 @@ document.querySelector('.gonext').onclick = function(e) {
 			//}
 
 		},
+		createSlider : function( $itemEl ) {
+            
+
+            var currentSlider = this.$previewInner.find('.slider');
+            
+            
+            if (typeof currentSlider.find('img').get(0) == 'undefined'){
+                // initial creation clone from blueprint
+                currentSlider = $blueprintSlider.clone(false, false);
+            }
+            
+            
+            var lastInd = $itemEl.attr('src').lastIndexOf("/") + 1;
+            var imgFile = $itemEl.attr('src').substring(lastInd);
+            var imgFile = imgFile.substring(0, imgFile.length - 4);
+
+            var path = $itemEl.attr('src').substring(0, $itemEl.attr('src').lastIndexOf("/") + 1);
+            var filePrefix = imgFile.substring(0, imgFile.indexOf("_"));
+            var fileSize = "600";
+            if (isMobile){
+                fileSize ="300";
+            }
+
+            currentSlider.attr('id', filePrefix + '-slider');
+
+            currentSlider = this.replaceSliderImgs(currentSlider, path, filePrefix, fileSize);
+
+
+            if (typeof currentSlider.get(0) !== 'undefined'){
+                var scritpAlreadyAdded = this.$previewInner.find('script');
+                if (typeof scritpAlreadyAdded !== 'undefined'){
+                    $(scritpAlreadyAdded).remove();
+                }
+
+
+                // replacing slider
+                if (typeof this.$fullimage !== 'undefined'){
+                    this.$fullimage.remove();
+                }
+                
+                
+                if (typeof this.$previewInner.find('.slider').get(0) !== 'undefined'){
+                    this.$previewInner.find('.slider').replaceWith(currentSlider);
+                }else{
+                    this.$previewInner.prepend(currentSlider);
+                }
+
+                //readded slider.js to rerun it
+                //this.$previewInner.append('<script src="js/slider.js"></script>');
+                
+                // init
+                $( "#" + currentSlider.attr("id") ).Slider();
+                
+            }
+            
+            
+        },
 		createStack : function( $itemEl ) {
                /*** fill in stack images ***/
-            
-            /*
-            var $li = $itemEl.parent();
-            
-            if ($li 
-            */
 
             var currentStack = this.$previewInner.find('.stack');
             
             
             if (typeof currentStack.find('img').get(0) == 'undefined'){
                 // initial creation clone from blueprint
-                currentStack = $imgStack.clone(false, false);
+                currentStack = $blueprintStack.clone(false, false);
             }
             
             var lastInd = $itemEl.attr('src').lastIndexOf("/") + 1;
@@ -578,9 +649,12 @@ document.querySelector('.gonext').onclick = function(e) {
             var path = $itemEl.attr('src').substring(0, $itemEl.attr('src').lastIndexOf("/") + 1);
             var filePrefix = imgFile.substring(0, imgFile.indexOf("_"));
             var fileSize = "600";
+            if (isMobile){
+                fileSize ="300";
+            }
 
 
-            currentStack = this.replaceImgs(currentStack, path, filePrefix, fileSize);
+            currentStack = this.replaceStackImgs(currentStack, path, filePrefix, fileSize);
 
 
             if (typeof currentStack.get(0) !== 'undefined'){
@@ -616,17 +690,30 @@ document.querySelector('.gonext').onclick = function(e) {
 
 
 		},
-		replaceImgs : function( currentStack, path, filePrefix, fileSize) {
+        
+		replaceSliderImgs : function( currentSlider, path, filePrefix, fileSize) {
 
-            var stackImgPath = path + filePrefix + "_" + fileSize;
+            var ImgPath = path + filePrefix + "_" + fileSize;
+            
+            $(currentSlider).find('img').each(function (index, element){
+               $(element).attr('src', ImgPath + "_" + index + ".jpg" );
+            });
+            
+            return currentSlider;
+		},
+        
+		replaceStackImgs : function( currentStack, path, filePrefix, fileSize) {            
+
+            var ImgPath = path + filePrefix + "_" + fileSize;
             
             $(currentStack).find('img').each(function (index, element){
 
-               $(element).attr('src', stackImgPath + "_" + index + ".jpg" );
+               $(element).attr('src', ImgPath + "_" + index + ".jpg" );
             });
             
             return currentStack;
 		},
+        
 		open : function() {
 
 			setTimeout( $.proxy( function() {	
@@ -672,13 +759,17 @@ document.querySelector('.gonext').onclick = function(e) {
 			var heightPreview = winsize.height - this.$item.data( 'height' ) - marginExpanded,
 				itemHeight = winsize.height;
 
+            /*
 			if( heightPreview < settings.minHeight ) {
 				heightPreview = settings.minHeight;
 				itemHeight = settings.minHeight + this.$item.data( 'height' ) + marginExpanded;
 			}
+            */
 
-			this.height = heightPreview;
-			this.itemHeight = itemHeight;
+            this.height = settings.minHeight;
+            this.itemHeight = settings.minHeight + this.$item.data( 'height' );
+			//this.height = heightPreview;
+			//this.itemHeight = itemHeight;
 
 		},
 		setHeights : function() {
