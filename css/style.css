@@ -129,6 +129,11 @@ a {
     width: 30px;
     padding: 0;
     cursor: pointer;
+    margin: 10% 50% 0 !important;
+}
+
+.intro .gonext {
+    margin: 2.5% 45% 0 !important;
 }
 
 .gonext:first-child{

@@ -586,11 +586,11 @@ document.querySelector('.gonext').onclick = function(e) {
             }
             
             
-            var lastInd = $itemEl.attr('src').lastIndexOf("/") + 1;
-            var imgFile = $itemEl.attr('src').substring(lastInd);
+            var lastInd = $itemEl.data('src').lastIndexOf("/") + 1;
+            var imgFile = $itemEl.data('src').substring(lastInd);
             var imgFile = imgFile.substring(0, imgFile.length - 4);
 
-            var path = $itemEl.attr('src').substring(0, $itemEl.attr('src').lastIndexOf("/") + 1);
+            var path = $itemEl.data('src').substring(0, $itemEl.data('src').lastIndexOf("/") + 1);
             var filePrefix = imgFile.substring(0, imgFile.indexOf("_"));
             var fileSize = "600";
             if (isMobile){
@@ -642,11 +642,11 @@ document.querySelector('.gonext').onclick = function(e) {
                 currentStack = $blueprintStack.clone(false, false);
             }
             
-            var lastInd = $itemEl.attr('src').lastIndexOf("/") + 1;
-            var imgFile = $itemEl.attr('src').substring(lastInd);
+            var lastInd = $itemEl.data('src').lastIndexOf("/") + 1;
+            var imgFile = $itemEl.data('src').substring(lastInd);
             var imgFile = imgFile.substring(0, imgFile.length - 4);
 
-            var path = $itemEl.attr('src').substring(0, $itemEl.attr('src').lastIndexOf("/") + 1);
+            var path = $itemEl.data('src').substring(0, $itemEl.data('src').lastIndexOf("/") + 1);
             var filePrefix = imgFile.substring(0, imgFile.indexOf("_"));
             var fileSize = "600";
             if (isMobile){
