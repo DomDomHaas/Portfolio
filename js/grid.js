@@ -173,81 +173,73 @@ var Grid = (function() {
                                     });
     }
 
-/*
- 
-document.querySelector('.gonext').onclick = function(e) {
-   e.preventDefault(); document.querySelector('.circle').classList.toggle('open');
-}    
+    var $blueprintSlider = $('.blueprints .slider'), 
 
-    
-		var $trailButton = $('.blueprints .morph-button'), 
-		$websiteButton = $('.blueprints .website-link'), 
-  */          
-		var $blueprintSlider = $('.blueprints .slider'), 
-    
-		$blueprintStack = $('.blueprints .stack'), 
-            
-		$grid = $( '#og-grid' ),
-		$items = $grid.children( 'li' ),
-            
-        isMobile = false,
-            
-		// current expanded item's index
-		currentItemIndex = -1,
-            
-		// position (top) of the expanded item
-		// used to know if the preview will expand in a different row
-		previewPos = -1,
-		// extra amount of pixels to scroll the window
-		scrollExtra = 0,
-		// extra margin when expanded (between preview overlay and the next items)
-		marginExpanded = 10,
-		$window = $( window ), winsize,
-		$body = $( 'html, body' ),
-		// transitionend events
-		transEndEventNames = {
-			'WebkitTransition' : 'webkitTransitionEnd',
-			'MozTransition' : 'transitionend',
-			'OTransition' : 'oTransitionEnd',
-			'msTransition' : 'MSTransitionEnd',
-			'transition' : 'transitionend'
-		},
-		transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-		// support for csstransitions
-		support = Modernizr.csstransitions;
-            
-        var settings, minH = 700;
+    $blueprintStack = $('.blueprints .stack'), 
 
-        if ($window.width() < 768){
-		  // "mobile" use the smaller pics
-            isMobile = true;
-        }
-    
-        // horizontal, big
-        if ($window.width() >= 830 && $window.width() < 1024){
-            minH = 600;
-        }
+    $grid = $( '#og-grid' ),
+    $items = $grid.children( 'li' ),
 
-        // horizontal, small
-        if ($window.width() >= 640 && $window.width() < 830){
+    isMobile = false,
+    $filesize = "600",
+
+    // current expanded item's index
+    currentItemIndex = -1,
+
+    // position (top) of the expanded item
+    // used to know if the preview will expand in a different row
+    previewPos = -1,
+    // extra amount of pixels to scroll the window
+    scrollExtra = 0,
+    // extra margin when expanded (between preview overlay and the next items)
+    marginExpanded = 10,
+    $window = $( window ), winsize,
+    $body = $( 'html, body' ),
+    // transitionend events
+    transEndEventNames = {
+        'WebkitTransition' : 'webkitTransitionEnd',
+        'MozTransition' : 'transitionend',
+        'OTransition' : 'oTransitionEnd',
+        'msTransition' : 'MSTransitionEnd',
+        'transition' : 'transitionend'
+    },
+    transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
+    // support for csstransitions
+    support = Modernizr.csstransitions;
+
+    var settings, minH = 700;
+
+    if ($window.width() < 768){
+      // "mobile" use the smaller pics
+        isMobile = true;
+        $filesize = "300";
+    }
+
+    // horizontal, big
+    if ($window.width() >= 830 && $window.width() < 1024){
+        minH = 600;
+    }
+
+    // horizontal, small
+    if ($window.width() >= 640 && $window.width() < 830){
+        minH = 450;
+    }
+
+    // vertical, is longer because everything is under each other
+    if ($window.width() < 640){
+        if ($window.height() <= 360){
             minH = 450;
+        } else {
+            minH = 750;
         }
-    
-        // vertical, is longer because everything is under each other
-        if ($window.width() < 640){
-            if ($window.height() <= 360){
-                minH = 450;
-            } else {
-                minH = 750;
-            }
-        }
-    
-        settings = {
-            minHeight : minH,
-            speed : 350,
-            easing : 'ease'
-        };
-    
+    }
+
+    settings = {
+        minHeight : minH,
+        speed : 350,
+        easing : 'ease'
+    };
+
 
 	function init( config ) {
 		
@@ -307,6 +299,7 @@ document.querySelector('.gonext').onclick = function(e) {
 		
 		// on window resize get the window´s size again
 		// reset some values..
+
         /*
 		$window.on( 'debouncedresize', function() {
 			
@@ -552,9 +545,6 @@ document.querySelector('.gonext').onclick = function(e) {
 			// for smaller screens we don´t display the large image (the media query will hide the fullimage wrapper)
 			//if( self.$fullimage.is( ':visible' ) ) {
                 
-                
-                
-                
                 /*
 				$( '<img/>' ).load( function() {
 					var $img = $( this );
@@ -568,17 +558,13 @@ document.querySelector('.gonext').onclick = function(e) {
 				} ).attr( 'src', eldata.largesrc );
                 
                 */
-                
-                 
-                
 			//}
 
 		},
+        
 		createSlider : function( $itemEl ) {
             
-
-            var currentSlider = this.$previewInner.find('.slider');
-            
+            var currentSlider = this.$previewInner.find('.slider');            
             
             if (typeof currentSlider.find('img').get(0) == 'undefined'){
                 // initial creation clone from blueprint
@@ -588,18 +574,14 @@ document.querySelector('.gonext').onclick = function(e) {
             
             var lastInd = $itemEl.data('src').lastIndexOf("/") + 1;
             var imgFile = $itemEl.data('src').substring(lastInd);
-            var imgFile = imgFile.substring(0, imgFile.length - 4);
+            imgFile = imgFile.substring(0, imgFile.length - 4);
 
             var path = $itemEl.data('src').substring(0, $itemEl.data('src').lastIndexOf("/") + 1);
             var filePrefix = imgFile.substring(0, imgFile.indexOf("_"));
-            var fileSize = "600";
-            if (isMobile){
-                fileSize ="300";
-            }
 
             currentSlider.attr('id', filePrefix + '-slider');
 
-            currentSlider = this.replaceSliderImgs(currentSlider, path, filePrefix, fileSize);
+            currentSlider = this.replaceSliderImgs(currentSlider, path, filePrefix, $filesize);
 
 
             if (typeof currentSlider.get(0) !== 'undefined'){
@@ -621,9 +603,6 @@ document.querySelector('.gonext').onclick = function(e) {
                     this.$previewInner.prepend(currentSlider);
                 }
 
-                //readded slider.js to rerun it
-                //this.$previewInner.append('<script src="js/slider.js"></script>');
-                
                 // init
                 $( "#" + currentSlider.attr("id") ).Slider();
                 
@@ -631,8 +610,19 @@ document.querySelector('.gonext').onclick = function(e) {
             
             
         },
+        
+		replaceSliderImgs : function( currentSlider, path, filePrefix, fileSize) {
+
+            $(currentSlider).find('img').each(function (index, element){
+                $(element).parent().find('i').remove();
+                $(element).attr('src', path + filePrefix + "_" + fileSize + "_" + index + ".jpg" );
+            });
+            
+            return currentSlider;
+		},
+        
+        /*
 		createStack : function( $itemEl ) {
-               /*** fill in stack images ***/
 
             var currentStack = this.$previewInner.find('.stack');
             
@@ -644,14 +634,10 @@ document.querySelector('.gonext').onclick = function(e) {
             
             var lastInd = $itemEl.data('src').lastIndexOf("/") + 1;
             var imgFile = $itemEl.data('src').substring(lastInd);
-            var imgFile = imgFile.substring(0, imgFile.length - 4);
+            imgFile = imgFile.substring(0, imgFile.length - 4);
 
             var path = $itemEl.data('src').substring(0, $itemEl.data('src').lastIndexOf("/") + 1);
             var filePrefix = imgFile.substring(0, imgFile.indexOf("_"));
-            var fileSize = "600";
-            if (isMobile){
-                fileSize ="300";
-            }
 
 
             currentStack = this.replaceStackImgs(currentStack, path, filePrefix, fileSize);
@@ -691,17 +677,6 @@ document.querySelector('.gonext').onclick = function(e) {
 
 		},
         
-		replaceSliderImgs : function( currentSlider, path, filePrefix, fileSize) {
-
-            var ImgPath = path + filePrefix + "_" + fileSize;
-            
-            $(currentSlider).find('img').each(function (index, element){
-               $(element).attr('src', ImgPath + "_" + index + ".jpg" );
-            });
-            
-            return currentSlider;
-		},
-        
 		replaceStackImgs : function( currentStack, path, filePrefix, fileSize) {            
 
             var ImgPath = path + filePrefix + "_" + fileSize;
@@ -713,6 +688,7 @@ document.querySelector('.gonext').onclick = function(e) {
             
             return currentStack;
 		},
+            */
         
 		open : function() {
 

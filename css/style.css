@@ -1,28 +1,5 @@
-/*@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700); */
-
-@import url(http://fonts.googleapis.com/css?family=Exo|Lekton|Iceland|Passero+One|Corben|Expletus+Sans|Baumans);
-/*
-@font-face {
-   font-family: 'calamity';
-   src: url( ../fonts/CalamityJaneNF.ttf);
-   src: local ('Ø'), url( ../fonts/CalamityJaneNF.ttf) format('ttf')
-}
-
-@font-face {
-   font-family: 'cafeandbrewery';
-   src: url( ../fonts/cafeandbrewery.ttf);
-   src: local ('Ø'), url( ../fonts/cafeandbrewery.ttf) format('ttf')
-}
-*/
-
-
 html { height: 100%; }
 
-/*
-*,
-*:after,
-*:before {
-*/
 * {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -55,43 +32,19 @@ a {
 	position: relative;
 }
 
-/*
-.container section {
-    max-width: 1024px;
-    margin: 0 auto;
-}
-*/
-
 .about{
-    /*
-	width: 90%;
-	max-width: 1280px;
-    */
     max-width: 650px;
 	margin: 0 auto;
 	position: relative;
-	padding: 100px 0 0;
+	padding: 5% 0 0;
 	text-align: center;
-    font-size: 40px;
+    font-size: 35px;
 }
 
 .main{
-    /* padding: 0 0 450px; */
     padding: 0;
 }
 
-/*
-.container > header .initials {
-  border: 5px dotted;
-  border-radius: 200px;
-  float: left;
-  font-family: 'cafeandbrewery';
-  font-size: 45px;
-  font-weight: 700;
-  letter-spacing: 5px;
-  padding: 20px 10px;
-}
-*/
 
 .main > p {
 	text-align: center;
@@ -116,7 +69,7 @@ a {
     
 .header {
     margin: 100px 0px 0px 0px;
-    padding: 50px 0;
+    padding: 2% 0;
     width: 100%;
     height: auto;
     font-weight: 700;
@@ -129,11 +82,15 @@ a {
     width: 30px;
     padding: 0;
     cursor: pointer;
-    margin: 10% 50% 0 !important;
+    /* margin: 10% 50% 0 !important; */
+}
+
+.og-grid li.gonext {
+    margin: 10% 45%;
 }
 
 .intro .gonext {
-    margin: 2.5% 45% 0 !important;
+    margin: 2.5% auto 0;
 }
 
 .gonext:first-child{
@@ -144,11 +101,6 @@ a {
 .footer {
     text-align: center;
     margin: 10% auto 0;
-    /*
-    margin: 200px auto 0;
-    box-shadow: 0 -10px 10px -15px;
-    max-width: 1280px;
-    */
 }
 
 .footer a{
@@ -311,29 +263,14 @@ body p{
 }
 
 
-
-
 .trailer_wrapper{
     position: relative;
-    /*
-    padding-bottom: 56.25%;
-    padding-top: 35px;
-    */
     max-width: 640px;
     height: 360px;
-    /* overflow: hidden; */
 	margin: auto;
     text-align: center;
 }
 
-/*
-#trailer {
-	margin: 200px auto 150px;
-    text-align: center;
-    width: 640px;
-    min-height: 360px;
-}
-*/
 
 .trailer_wrapper > .trailer {
     position: absolute;
@@ -352,6 +289,8 @@ body p{
 
 /**** title and background ****/
 
+
+
 @media screen and (min-width: 320px) and (max-width: 639px) {
 
     .logo{
@@ -368,8 +307,8 @@ body p{
     }    
     
     .about{
-        font-size: 21px;
-        padding: 5% 5%;
+        font-size: 25px;
+        padding: 10% 5%;
     }
     
     .about > p {
@@ -420,15 +359,6 @@ body p{
         height: 300px;
         width: 300px;
     }
-
-    /*
-    .slider nav span{
-        width: 75px;
-        height: 75px;
-        margin-top: -50px;
-        line-height: 40px;    
-    }
-    */
 
     .slider nav span {
         width: 50px;
@@ -485,6 +415,13 @@ body p{
 }
 
 
+@media screen and (min-width: 320px) and (max-width: 399px) {
+
+    .about > p{
+        font-size: 21px;
+    }
+        
+}
 
 @media screen and (min-width: 639px) and (max-width: 830px){
     
@@ -531,18 +468,10 @@ body p{
 @media screen and (min-width: 768px) and (max-width: 1024px){
     
     .stack{
-    /*
-        float: left;
-        margin: 2% auto;
-*/
         max-width: 50%;
     }
     
     .og-details {
-    /*
-        float: left;
-        padding: 0 5%;
-*/
         max-width: 50%;
     }
     
@@ -552,14 +481,6 @@ body p{
         width: 100%;
         height: 365px;
     }
-    /*
-    .morph-button-modal.open .morph-content{
-        left: 0% !important;
-        top: 0% !important;
-    }    
-    */
-
-
     
     .slider nav span.next {
         right: 1%;
@@ -567,18 +488,10 @@ body p{
     
 }
 
-@media screen and (min-width: 768px) and (max-width: 1262px) {
-    
-    
-
-}
 
 /* ensure the line break of gonext button */
 @media screen and (min-width: 640px) and (max-width: 1262px) {
 
-    .og-grid li.gonext {
-        margin: 10% 45%;
-    }
     
 }
 
@@ -607,49 +520,11 @@ body p{
     }    
 }
 
-@media screen and (min-width: 400px) and (max-width: 640px) {
- 
-
-    
-}
-
-@media screen and (min-width: 480px) and (max-width: 640px) {
-
-
-    
-}
-
-/**** screenblock paddings ****/
-
-@media screen and (min-width: 540px) and (max-width: 640px) {
-
-
-    
-}
-
 @media screen and (min-width: 980px) and (max-width: 1024px) {
 
     .slider nav span {
         bottom: 5%;
     }
-    
-}
-
-
-@media screen and (min-width: 640px) {
-    
-    /*
-    .og-details a, .morph-button-fixed, .morph-button-fixed .morph-content{
-	   margin: 5% 25% 0 25%;
-       width: 50%;
-    }
-    */
-}
-
-@media screen and (min-width: 721px) and (max-width: 768px) {
-
-
-    
 }
 
 

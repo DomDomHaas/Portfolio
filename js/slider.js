@@ -57,10 +57,8 @@
 					'transform' : 'transform'
 				};
 
-			//if( this.support ) {
-				this.transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ] + '.slider';
-				this.transformName = transformNames[ Modernizr.prefixed( 'transform' ) ];
-			//}
+            this.transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ] + '.slider';
+            this.transformName = transformNames[ Modernizr.prefixed( 'transform' ) ];
             
 			this.index = 0;
 			this.lastIndex = 0;
@@ -71,9 +69,7 @@
 			this.$list.css( 'width', 100 * this.itemTotal + '%' );
             
 			// apply the transition
-			//if( this.support ) {
-				this.$list.css( 'transition', this.transformName + ' ' + this.options.speed + 'ms ' + this.options.easing );
-			//}
+            this.$list.css( 'transition', this.transformName + ' ' + this.options.speed + 'ms ' + this.options.easing );
             
 			// each item will have a width of 100 / itemTotal
 			this.$items.css( 'width', 100 / this.itemTotal + '%' );
@@ -84,8 +80,7 @@
 				// add navigation arrows (the previous arrow is not shown initially):
 				this.$prevArrow = $( '<span class="prev">&lt;</span>' ).hide();
 				this.$nextArrow = $( '<span class="next">&gt;</span>' );
-				$( '<nav/>' ).append( this.$prevArrow, this.$nextArrow ).appendTo( this.$el );
-                
+				$( '<nav/>' ).append( this.$prevArrow, this.$nextArrow ).appendTo( this.$el );                
 			}
 
 		},
@@ -128,21 +123,15 @@
 			var translateVal = -1 * this.index * 100 / this.itemTotal;
             
             this.$list.css( 'transform', this.support3d ? 'translate3d(' + translateVal + '%,0,0)' : 'translate(' + translateVal + '%)' );
-/*            
-			if( this.support ) {
-			}
-			else {
-				this.$list.css( 'margin-left', -1 * this.index * 100 + '%' );	
-			}
-*/			
+            
 			var transitionendfn = $.proxy( function() {
 				this.isAnimating = false;
 			}, this );
 
-			if( this.support ) {
+			if( this.support ) {                
 				this.$list.on( this.transEndEventName, $.proxy( transitionendfn, this ) );
-			}
-			else {
+                
+			} else {
 				transitionendfn.call();
 			}
 
@@ -166,10 +155,13 @@
 			if( this.itemTotal > 1 ) {
 				this.$prevArrow.parent().remove();
 			}
+            
 			this.$list.css( 'width', 'auto' );
+            
 			if( this.support ) {
 				this.$list.css( 'transition', 'none' );
 			}
+            
 			this.$items.css( 'width', 'auto' );
 
 		}

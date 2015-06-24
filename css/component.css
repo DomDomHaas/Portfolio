@@ -20,15 +20,6 @@
     margin: 10% auto 0;
 }
 
-/*
-.og-grid li a,
-.og-grid li a img {
-	border: none;
-	outline: none;
-	display: block;
-	position: relative;
-}
-*/
 
 .og-grid li.og-expanded .item::after {
 	top: 100%;
