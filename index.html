@@ -14,15 +14,12 @@
         
 		<link rel="shortcut icon" href="images/icons/fav_icon_logo.png" /> 
         
-        <!--        
-		<link rel="stylesheet" type="text/css" media="screen" href="css/slider.css" />
-		<link rel="stylesheet" type="text/css" media="screen" href="css/component.css" />
-		<link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-		<link rel="stylesheet" type="text/css" media="screen" href="css/interactive.css" />        
-        -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/slider.min.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/component.min.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/style.min.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="css/interactive.min.css" />        
         
-        <link rel="stylesheet" type="text/css" media="screen" href="css/portfolio.min.css" />
-        
+		<script async src="js/lazysizes.min.js"></script>
 		<script src="js/modernizr.custom.js"></script>
         <script src="js/jquery-2.1.1.min.js"></script>
         <script async src="js/jquery.scrollTo.min.js"></script>
@@ -66,27 +63,30 @@
             
             <header class="logo">
                 
-                <nav class="circular-menu">
-
-                  <div class="circle open">
+                <nav class="circular-menu closed">
+                  <div class="left pullDown">Game Design Portfolio</div>
+                  <div class="right pullDown">of Dominik Haas</div>
+                    
+                  <div class="circle">
                     <a local="#gameprogramming" class="fa fa-code fa-2x"></a>
                     <a local="#visualdesign" class="fa fa-pencil fa-2x"></a>
                     <a href="http://linkedin.com/pub/dominik-haas/81/a65/844" target="_blank" class="fa fa-linkedin fa-lg"></a>
                     <a href="http://github.com/DomDomHaas" target="_blank" class="fa fa-github fa-lg"></a>
                     <a href="http://twitter.com/DomDomHaas" target="_blank" class="fa fa-twitter fa-lg"></a>
-                    <a href="http://domdomhaas.github.io" target="_blank" class="fa fa-cogs fa-lg"></a>
+                    <a href="http://www.indiedb.com/members/dominikhaas/blogs" target="_blank" class="fa fa-cogs fa-lg"></a>
                     <a href="mailto: dominik.haas@gmx.ch" target="_blank" class="fa fa-envelope fa-lg"></a>
                     <a local="#gamedesign" class="fa fa-gamepad fa-2x"></a>
                   </div>
 
-                  <a href="" class="menu-button fa fa-2x scaling"></a>
-                  <img class="logoimg" src="images/icons/Logo.png"/>
+                  <a href="" class="menu-button fa fa-2x pulse"></a>
+                  <img class="logoimg" src="images/colorpalettes/colorpalettes_title.jpg"/>
 
+                    
                 </nav>
             </header>
-            <script src="js/logo.js"></script>
+            <script src="js/logo.min.js"></script>
             
-            
+            <!--
             <section class="intro">
                 <div class="title">
                     <h1>I love<br/>interactive<br/>applications<br/>especially<br/>Games</h1>
@@ -97,11 +97,14 @@
                     <p>I studied<br/>Game Design and<br/>graduated in summer 2015<br/>at the Zurich University of the Arts.</p>
                 </div>
             </section>
+            -->
             
             <main class="main">
 				<ul id="og-grid" class="og-grid">
 
+            <!--
                     <li local="#gamedesign" class="gonext fa fa-2x fa-arrow-circle-down floating"></li>
+            -->
                     
                     <li id="gamedesign" class="clearfix header gd">
                         <p>Game Design</p>
@@ -222,6 +225,10 @@
                     
                     <li id="fotoabout" class="clearfix header gd"></li>
                     
+                    <div class="title">
+                        <h1>I love interactive<br/>applications<br/>especially<br/>Games</h1>
+                    </div>
+                                        
 					<li>
                         <div class="item gd" data-name="Dominik Haas"
                              data-src="images/me/me_300_title.jpg"
@@ -234,16 +241,21 @@
                         </div>
 					</li>
                     
+                    <div id="about" class="about">
+                        <p>I studied<br/>Game Design and<br/>graduated in summer 2015<br/>at the Zurich University of the Arts.</p>
+                    </div>
+                    
+                    
 				</ul>
 			</main>
 
             <footer class="footer tt-wrapper">
-                <a href="mailto: dominik.haas@gmx.ch" target="_blank"><span>Email</span><img src="images/icons/email.png" /></a>
-                <a href="http://domdomhaas.github.io" target="_blank"><span>Dev Blog</span><img src="images/icons/gears.png" /></a>
+                <a href="mailto: dominik.haas@gmx.ch" target="_blank"><span>Email</span><img class="lazyload" data-src="images/icons/email.png" /></a>
+                <a href="http://www.indiedb.com/members/dominikhaas/blogs" target="_blank"><span>Dev Blog</span><img class="lazyload" data-src="images/icons/gears.png" /></a>
                 
-                <a href="http://twitter.com/DomDomHaas" target="_blank"><span>Twitter</span><img src="images/icons/twitter.png" /></a>
-                <a href="http://github.com/DomDomHaas" target="_blank"><span>Github</span><img src="images/icons/github.png" /></a>
-                <a href="http://linkedin.com/pub/dominik-haas/81/a65/844" target="_blank"><span>Linkedin</span><img src="images/icons/linkedin.png" /></a>                
+                <a href="http://twitter.com/DomDomHaas" target="_blank"><span>Twitter</span><img class="lazyload" data-src="images/icons/twitter.png" /></a>
+                <a href="http://github.com/DomDomHaas" target="_blank"><span>Github</span><img class="lazyload" data-src="images/icons/github.png" /></a>
+                <a href="http://linkedin.com/pub/dominik-haas/81/a65/844" target="_blank"><span>Linkedin</span><img class="lazyload" data-src="images/icons/linkedin.png" /></a>                
             </footer>
             
             

@@ -27,7 +27,7 @@ for(var i = 0, l = items.length; i < l; i++) {
 }
 
 
-
 document.querySelector('.logoimg').onclick = function(e) {
    e.preventDefault(); document.querySelector('.circle').classList.toggle('open');
+   document.querySelector('.circular-menu').classList.toggle('closed');
 }

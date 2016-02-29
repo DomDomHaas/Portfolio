@@ -6,7 +6,8 @@
 	overflow: hidden;
 	/* padding: 40px 0 60px; */
     transition: transform 500ms ease 0s;
-    transform: translate3d(0%, 0px, 0px);    
+    transform: translate3d(0%, 0px, 0px);
+    max-width: 600px;
 }
 
 
@@ -36,6 +37,7 @@
 .slider ul li > img {
     width: 100%;
     max-width: 600px;
+    border-radius: 2%;
 }
 /*
 .slider ul li > img {
@@ -72,9 +74,9 @@
 }
 
 .slider nav span.next {
-	right: 10%;
+	right: 2%;
 }
 
 .slider nav span.prev {
-	left: 1%;
+	left: 2%;
 }

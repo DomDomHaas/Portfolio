@@ -7,6 +7,25 @@
 * Copyright 2011 @louis_remi
 * Licensed under the MIT license.
 */
+
+
+function bindClass(selector, bindClass){
+    $(selector).each(function(index, element){
+        $(element).mouseenter(function(){
+            $(this).addClass(bindClass);
+        });
+        $(element).mouseleave(function(){
+            $(this).removeClass(bindClass);
+        });    
+    });
+}
+
+
+bindClass('.item.gd', 'tossing');
+bindClass('.item.gp', 'pulse');
+bindClass('.item.vd', 'floating');
+
+
 var $event = $.event,
 $special,
 resizeTimeout;
@@ -719,7 +738,19 @@ var Grid = (function() {
 				this.$previewEl.css( 'height', 0 );
 				// the current expanded item (might be different from this.$item)
 				var $expandedItem = $items.eq( this.expandedIdx );
-				$expandedItem.css( 'height', $expandedItem.data( 'height' ) ).on( transEndEventName, onEndFn );
+                
+                var height = this.$item.data('height');                
+                
+                if (height == undefined){
+                    height = $expandedItem.css('height');
+                }
+                
+                if (this.expandedIdx >= $items.length){
+                    // currentItemIndex should be -1
+				    $expandedItem = $items.eq( this.expandedIdx + currentItemIndex );
+                }
+                
+				$expandedItem.css( 'height', height ).on( transEndEventName, onEndFn );
 
 				if( !support ) {
 					onEndFn.call();

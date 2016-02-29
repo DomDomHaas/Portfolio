@@ -10,14 +10,14 @@
 .og-grid li {
 	display: inline-block;
 	/* margin: 120px auto 0; */
-    margin: 10% 4.5% 0;    
+    margin: 2%;    
     
 	vertical-align: top;
 	/* height: 250px; */
 }
 
 .og-grid li.header {
-    margin: 10% auto 0;
+    margin: 0 auto 2%;
 }
 
 
@@ -32,7 +32,7 @@
 	border-bottom-color: #00dffc;
 	border-width: 15px;
 	left: 50%;
-	margin: -20px 0 0 -15px;
+	margin: -10px 0 0 -15px;
 }
 
 .og-expander {
@@ -41,7 +41,7 @@
 	top: auto;
 	left: 0;
 	width: 100%;
-	margin-top: 10px;
+	margin-top: 20px;
 	text-align: left;
 	height: 0;
 	overflow: hidden;

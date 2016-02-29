@@ -49,16 +49,41 @@
 
 /*** circle menu ***/
 .circular-menu {
-  width: 250px;
-  height: 250px;
   margin: 0 auto;
   position: relative;
 }
+
+.circular-menu .left{
+    position: relative;
+    left: 25%;
+    float: left;
+    margin: 10% 0;
+    display: none;
+}
+
+
+.circular-menu .right{
+    position: relative;
+    right: 29%;
+    float: right;
+    margin: 10% 0;
+    display: none;
+}
+
+.circular-menu.closed .right{
+    display: inherit;
+}
+
+.circular-menu.closed .left{
+    display: inherit;
+}
+
 
 .circle {
   width: 250px;
   height: 250px;
   opacity: 0;
+  margin: 0 auto;
   
   -webkit-transform: scale(0.5);
   -moz-transform: scale(0.5);
@@ -81,10 +106,10 @@
     text-decoration: none;
     color: #00DFFC;
     display: block;
-    height: 40px;
-    width: 40px;
+    height: 50px;
+    width: 50px;
     line-height: 40px;
-    margin-left: -20px;
+    margin-left: -25px;
     margin-top: -20px;
     position: absolute;
     text-align: center;
@@ -105,6 +130,10 @@
     top: calc(50% - 50px);
     width: 100px;
     cursor: pointer;
+}
+
+.logoimg {
+    border-radius: 50%;
 }
 
 .menu-button {    
@@ -132,8 +161,8 @@
 	position: relative;
 	cursor: default;
 	box-shadow: 
-		inset 0 0 0 0 rgba(0,140,158, 0.4),
-		inset 0 0 0 16px rgba(0,140,158, 0.6),
+		inset 0 0 0 0 rgba(0,140,158, 0.2),
+		inset 0 0 0 5px rgba(0,140,158, 0.6),
 		0 1px 2px rgba(0,0,0,0.1);
 		
 	-webkit-transition: all 0.2s ease-in-out;
@@ -222,7 +251,7 @@
     cursor: pointer;
 	box-shadow: 
 		inset 0 0 0 150px rgba(0,140,158, 0.6),
-		inset 0 0 0 16px rgba(255,255,255,0.8),
+		inset 0 0 0 5px rgba(255,255,255,1),
 		0 1px 2px rgba(0,0,0,0.1);
 }
 
@@ -497,4 +526,55 @@
         font-size: 20px;
         line-height: 1;
     }    
+}
+
+@media screen and (min-width: 320px) and (max-width: 800px) {
+
+    .circular-menu .left{
+        float: none;
+        left: 0;
+        margin: 0;
+    }
+    .circular-menu .right{
+        float: none;
+        right: 0;
+        margin: 0;
+    }
+    
+}
+
+@media screen and (min-width: 800px) {
+
+    .circular-menu .left{
+        left: 12%;
+    }
+    .circular-menu .right{
+        right: 18%;
+    }
+    
+    .circular-menu .left,
+    .circular-menu .right{
+        margin: 10% 5%;
+    }
+    
+}
+
+@media screen and (min-width: 1280px) {
+
+    .circular-menu .right{
+        right: 15%;
+    }
+    
+    .circular-menu .left,
+    .circular-menu .right{
+        margin: 8% 5%;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+
+    .circular-menu .left,
+    .circular-menu .right{
+        margin: 7% 5%;
+    }
 }
