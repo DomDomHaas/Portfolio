@@ -1,4 +1,4 @@
 Portfolio
 =========
 
-This is the source code for my upcoming portfolio: dominikhaas.ch
+This is the source code for my old portfolio: dominikhaas.ch
